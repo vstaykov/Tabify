@@ -1,2 +1,3 @@
 # Tabify
-Tabs manager as Chrome extension
+
+Google Chrome extension for managing tabs
