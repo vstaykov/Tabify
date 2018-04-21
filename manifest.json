@@ -2,6 +2,5 @@
     "manifest_version": 2,
     "name":"Tabify",
     "version": "1.0", 
-    "default_locale": "en",
     "description": "Manages different aspects of your tabs interactions"
 }
