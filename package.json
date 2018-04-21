@@ -1,0 +1,11 @@
+{
+  "name": "tabify",
+  "version": "1.0.0",
+  "description": "Google Chrome extension for managing tabs",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vstaykov/tabify.git"
+  },
+  "author": "Ventsislav Staykov",
+  "homepage": "https://github.com/vstaykov/tabify#readme"
+}
