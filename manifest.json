@@ -2,5 +2,15 @@
     "manifest_version": 2,
     "name":"Tabify",
     "version": "1.0", 
-    "description": "Manages different aspects of your tabs interactions"
+    "description": "Manages different aspects of your tabs interactions",
+    "icons":{
+        "16": "icons/tabs_16.png",
+        "24": "icons/tabs_24.png",
+        "32": "icons/tabs_32.png",
+        "64": "icons/tabs_64.png",
+        "128": "icons/tabs_128.png"
+    },
+    "browser_action": {
+        "default_icon": "icons/tabs_512.png"
+      }
 }
