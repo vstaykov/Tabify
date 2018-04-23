@@ -14,7 +14,7 @@
         "default_icon": "icons/tabs_512.png"
     },
     "background": {
-        "scripts": ["src/eventPage.js"],
+        "scripts": ["dist/eventPage.js"],
         "persistent": false
     },
     "permissions": ["tabs"]
