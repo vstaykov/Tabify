@@ -1,9 +1,9 @@
 'use strict';
 
+import { TabsManager } from "./TabsManager.js"
+
+let tabsManager = new TabsManager();
+
 chrome.browserAction.onClicked.addListener(function () {
-  chrome.tabs.query({}, function (tabs) {
-    tabs.forEach(tab => {
-      chrome.tabs.update(tab.id, { muted: true });
-    });
-  })
+  tabsManager.muteTabs();
 });
