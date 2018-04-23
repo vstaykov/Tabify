@@ -7,5 +7,11 @@
     "url": "git+https://github.com/vstaykov/tabify.git"
   },
   "author": "Ventsislav Staykov",
-  "homepage": "https://github.com/vstaykov/tabify#readme"
+  "homepage": "https://github.com/vstaykov/tabify#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babelify": "^8.0.0"
+  },
+  "dependencies": {}
 }
