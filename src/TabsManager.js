@@ -1,13 +1,29 @@
 'use strict';
 
+import { Tabify } from "./Tabify.js"
+
 class TabsManager {
 
     muteTabs() {
         let query = { muted: false };
 
-        this.getTabs(query).then(function (tabs) { 
+        this.getTabs(query).then(function (tabs) {
             tabs.forEach(tab => {
                 chrome.tabs.update(tab.id, { muted: true });
+            });
+        });
+    }
+
+    unmuteTabs() {
+        let query = { muted: true };
+
+        this.getTabs(query).then(function (tabs) {
+            tabs.forEach(tab => {
+                let mutedInfo = tab.mutedInfo;
+
+                if (mutedInfo.reason == "extension" && mutedInfo.extensionId == Tabify.ID) {
+                    chrome.tabs.update(tab.id, { muted: false });
+                }
             });
         });
     }
