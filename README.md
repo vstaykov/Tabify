@@ -1,4 +1,4 @@
-# Tabify ![alt text](icons/tabs_512.png "Tabify")
+# Tabify ![alt text](icons/tabs_64.png "Tabify")
 
 Google Chrome extension for managing tabs
 ***
