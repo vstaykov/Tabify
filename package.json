@@ -16,6 +16,6 @@
   },
   "dependencies": {},
   "scripts": {
-    "build": "browserify src/eventPage.js src/TabsManager.js -o dist/eventPage.js -t babelify"
+    "build": "browserify src/eventPage.js src/CommandsExecutor.js -o dist/eventPage.js -t babelify"
   }
 }

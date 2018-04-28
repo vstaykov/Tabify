@@ -1,27 +1,9 @@
 'use strict';
 
-import { TabsManager } from "./TabsManager.js"
+import { CommandsExecutor } from "./CommandsExecutor.js"
 
-let tabsManager = new TabsManager();
-let muted = false;
+let commandsExecutor = new CommandsExecutor();
 
 chrome.commands.onCommand.addListener(function (command) {
-  switch (command){
-    case "toggle-quite-mode":
-      toggleQuiteMode();
-      break;
-      default:
-      console.log(`Command ${command} detected but not handled.`)
-      break;
-  }
+  commandsExecutor.executeCommand(command);
 });
-
-function toggleQuiteMode() {
-  if (muted) {
-    tabsManager.unmuteTabs();
-    muted = false;
-  } else {
-    tabsManager.muteTabs();
-    muted = true;
-  }
-}
