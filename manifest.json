@@ -17,5 +17,17 @@
         "scripts": ["dist/eventPage.js"],
         "persistent": false
     },
-    "permissions": ["tabs"]
+    "commands": {
+        "toggle-quite-mode":{
+            "suggested_key":{
+                "default": "Ctrl+Q",
+                "mac": "Command+Q"
+            },
+            "description":"Toggle quite mode on or off"
+        }
+    },
+    "permissions": [
+        "tabs",
+        "commands"
+    ]
 }
