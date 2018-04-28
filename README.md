@@ -2,6 +2,11 @@
 
 Google Chrome extension for managing tabs
 ***
+## Features
+1. Mute all unmuted tabs with Ctrl/Command + Q
+2. Unmute all muted by this extension tabs with Ctrl/Command + Q
+
+***
 ## Build and Install
 1. Run **npm install** in root
 2. Run **npm run build** in root
