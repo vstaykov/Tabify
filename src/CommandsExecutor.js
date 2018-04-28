@@ -12,6 +12,7 @@ class CommandsExecutor {
     executeCommand(command) {
         switch (command) {
             case "toggle-quite-mode":
+            case "global-toggle-quite-mode":
                 this._toggleQuiteMode();
                 break;
             default:

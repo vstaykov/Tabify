@@ -26,6 +26,14 @@
                 "mac": "Command+Q"
             },
             "description": "Toggle quite mode on or off"
+        },
+        "global-toggle-quite-mode": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+1",
+                "mac": "Command+Shift+1"
+            },
+            "description": "Toggle quite mode on or off",
+            "global": true
         }
     },
     "permissions": [
