@@ -5,13 +5,22 @@ import React from "react";
 const Shortcut = (props) => {
 
     return (
-        <div className="row">
-            <div>{props.title}:</div>
+        <div>
+            <div className="shortcut-title d-inline">{props.title}:</div>
             {props.keys.map((key, i) => {
-                let concatString = i == props.keys.length - 1 ? "" : " + ";
-                return(
-                    <span key={i}>{key}{concatString}</span>
+                let keyElement = <span key={i} className="shortcut-key text-monospace" >{key}</span>;
+                let resultElement = (
+                    <span>
+                        {keyElement}
+                        <span className="shortcut-key-concatinator">+</span>
+                    </span>
                 );
+
+                if (i == props.keys.length - 1) {
+                    resultElement = keyElement;
+                }
+
+                return resultElement;
             })}
         </div>
     );

@@ -6,8 +6,8 @@ import Shortcut from "./Shortcut.js"
 const ShortcutsSection = (props) => {
 
     return (
-        <div>
-            <div>Shortcuts Cheatsheet</div>
+        <div className="shortcuts-section">
+            <div className="shortcuts-section-title">Shortcuts Cheatsheet</div>
             <hr />
             {props.shortcuts.map((shortcut) => {
                 return (

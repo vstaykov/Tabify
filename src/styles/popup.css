@@ -1,7 +1,41 @@
 body {
-    width: 300px;
+    width: 320px;
     margin: 0;
     padding: 0;
     padding-left: 15px;
     padding-top:5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.shortcuts-section {
+    margin-top: 20px;
+}
+
+.shortcuts-section hr{
+    margin-top: 3px;
+    margin-left: 0px;
+    margin-bottom: 10px;
+    width: 50%;
+}
+
+.shortcut-title {
+    padding-right: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
+.shortcut-key, .shortcut-key-concatinator {
+    font-size: 0.8em;
+}
+
+.shortcut-key {
+    background: lightgray;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 20%;
+}
+
+.shortcut-key-concatinator {
+    margin-left: 2px;
+    margin-right: 2px;
 }
