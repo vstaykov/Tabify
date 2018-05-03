@@ -12,7 +12,7 @@
     },
     "browser_action": {
         "default_icon": "icons/tabs_512.png",
-        "default_popup": "dist/html/popup.html"
+        "default_popup": "public/html/popup.html"
     },
     "background": {
         "scripts": [

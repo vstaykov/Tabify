@@ -27,7 +27,7 @@
     "build:js": "npm run build:eventPage & npm run build:popup",
     "build:eventPage": "browserify src/eventPage.js src/CommandsExecutor.js -o dist/eventPage.js -t babelify",
     "build:popup": "browserify src/popup.js -o dist/popup.js -t babelify",
-    "build:content:win": "robocopy src/html dist/html & robocopy src/styles dist/styles & robocopy node_modules/bootstrap/dist/css/bootstrap.min.css dist/styles/bootstrap.min.css",
-    "build:content:lin": "cp -R src/html dist & cp -R src/styles dist & cp -R node_modules/bootstrap/dist/css/bootstrap.min.css dist/styles/bootstrap.min.css"
+    "build:content:win": "robocopy node_modules/bootstrap/dist/css/bootstrap.min.css public/styles/bootstrap.min.css",
+    "build:content:lin": "cp -R node_modules/bootstrap/dist/css/bootstrap.min.css public/styles/bootstrap.min.css"
   }
 }
