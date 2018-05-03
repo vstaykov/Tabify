@@ -14,7 +14,9 @@
     "babelify": "^8.0.0",
     "browserify": "^16.2.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "bootstrap": "^4.0.0-beta"
+  },
   "scripts": {
     "build:win": "npm run build:js & npm run build:content:win",
     "build:lin": "npm run build:js & npm run build:content:lin",
