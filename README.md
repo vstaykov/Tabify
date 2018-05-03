@@ -11,7 +11,7 @@ Google Chrome extension for managing tabs
 
 ## Build and Install
 1. Run **npm install** in root
-2. Run **npm run build:win** (for Windows) or **npm run build:lin** (for Linux based OS) in root
+2. Run **npm run build** in root
 3. Add the extension in Chrome in **Developer mode**
    1. Open **chrome://extensions** in Chrome
    2. Enable **Developer mode**
