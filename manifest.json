@@ -11,7 +11,8 @@
         "128": "icons/tabs_128.png"
     },
     "browser_action": {
-        "default_icon": "icons/tabs_512.png"
+        "default_icon": "icons/tabs_512.png",
+        "default_popup": "dist/UI/popup.html"
     },
     "background": {
         "scripts": [
