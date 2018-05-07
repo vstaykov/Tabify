@@ -27,8 +27,9 @@
     "react-dom": "^16.3.2"
   },
   "scripts": {
-    "build": "npm run build:eventPage & npm run build:popup",
+    "build": "npm run lint & npm run build:eventPage & npm run build:popup",
     "build:eventPage": "browserify src/event-page.js src/commands-executor.js -o dist/event-page.js -t babelify",
-    "build:popup": "browserify src/popup.js -o dist/popup.js -t babelify"
+    "build:popup": "browserify src/popup.js -o dist/popup.js -t babelify",
+    "lint": "eslint src"
   }
 }
