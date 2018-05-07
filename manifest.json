@@ -24,7 +24,7 @@
         "toggle-quite-mode": {
             "suggested_key": {
                 "default": "Ctrl+Q",
-                "mac": "Command+Q"
+                "mac": "Command+Shift+Q"
             },
             "description": "Toggle quite mode on or off"
         },
