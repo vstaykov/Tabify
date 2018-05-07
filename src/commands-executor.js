@@ -1,4 +1,4 @@
-import TabsManager from './tabs-manager';
+import TabsManager from "./tabs-manager";
 
 class CommandsExecutor {
   constructor() {
@@ -8,8 +8,8 @@ class CommandsExecutor {
 
   executeCommand(command) {
     switch (command) {
-      case 'toggle-quite-mode':
-      case 'global-toggle-quite-mode':
+      case "toggle-quite-mode":
+      case "global-toggle-quite-mode":
         this.toggleQuiteMode();
         break;
       default:

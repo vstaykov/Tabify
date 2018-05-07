@@ -1,6 +1,6 @@
 class Tabify {
   static get ID() {
-    return 'apalidngjepaamogeecfdbecddlmolpg';
+    return "apalidngjepaamogeecfdbecddlmolpg";
   }
 }
 
