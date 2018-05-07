@@ -1,7 +1,7 @@
 "use strict";
 
 import React from "react";
-import Shortcut from "./Shortcut.js"
+import Shortcut from "./shortcut.js"
 
 const ShortcutsSection = (props) => {
 

@@ -22,7 +22,7 @@
   },
   "scripts": {
     "build": "npm run build:eventPage & npm run build:popup",
-    "build:eventPage": "browserify src/eventPage.js src/CommandsExecutor.js -o dist/eventPage.js -t babelify",
+    "build:eventPage": "browserify src/event-page.js src/commands-executor.js -o dist/event-page.js -t babelify",
     "build:popup": "browserify src/popup.js -o dist/popup.js -t babelify"
   }
 }

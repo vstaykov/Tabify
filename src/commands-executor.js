@@ -1,6 +1,6 @@
 'use strict';
 
-import { TabsManager } from "./TabsManager.js";
+import { TabsManager } from "./tabs-manager.js";
 
 class CommandsExecutor {
 

@@ -2,7 +2,7 @@
 
 import React from "react";
 import ReactDOM from "react-dom";
-import ShortcutsSection from "./ShortcutsSection.js"
+import ShortcutsSection from "./shortcuts-section.js"
 
 const Popup = (props) => {
     let shortcuts = [

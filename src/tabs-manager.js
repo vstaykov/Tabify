@@ -1,6 +1,6 @@
 'use strict';
 
-import { Tabify } from "./Tabify.js"
+import { Tabify } from "./tabify.js"
 
 class TabsManager {
 

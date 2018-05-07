@@ -1,6 +1,6 @@
 'use strict';
 
-import { CommandsExecutor } from "./CommandsExecutor.js"
+import { CommandsExecutor } from "./commands-executor.js"
 
 let commandsExecutor = new CommandsExecutor();
 
