@@ -1,9 +1,7 @@
-'use strict';
+import CommandsExecutor from './commands-executor';
 
-import { CommandsExecutor } from "./commands-executor.js"
+const commandsExecutor = new CommandsExecutor();
 
-let commandsExecutor = new CommandsExecutor();
-
-chrome.commands.onCommand.addListener(function (command) {
+chrome.commands.onCommand.addListener((command) => {
   commandsExecutor.executeCommand(command);
 });

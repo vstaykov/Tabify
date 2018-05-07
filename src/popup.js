@@ -1,10 +1,5 @@
-"use strict";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Popup from './components/popup';
 
-import React from "react";
-import ReactDOM from "react-dom";
-import Popup from "./components/popup";
-
-ReactDOM.render(
-    <Popup />,
-    document.getElementById("root")
-);
+ReactDOM.render(<Popup />, document.getElementById('root'));

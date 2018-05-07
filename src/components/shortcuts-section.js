@@ -1,21 +1,22 @@
-"use strict";
+import React from 'react';
+import PropTypes from 'prop-types';
+import Shortcut from './shortcut';
 
-import React from "react";
-import Shortcut from "./shortcut.js"
+const ShortcutsSection = props => (
+  <div className="shortcuts-section">
+    <div className="shortcuts-section-title">Shortcuts Cheatsheet</div>
+    <hr />
+    {props.shortcuts.map(shortcut => (
+      <Shortcut {...shortcut} />
+    ))}
+  </div>
+);
 
-const ShortcutsSection = (props) => {
-
-    return (
-        <div className="shortcuts-section">
-            <div className="shortcuts-section-title">Shortcuts Cheatsheet</div>
-            <hr />
-            {props.shortcuts.map((shortcut) => {
-                return (
-                    <Shortcut key={shortcut.keys} {...shortcut} />
-                );
-            })}
-        </div>
-    );
-}
+ShortcutsSection.propTypes = {
+  shortcuts: PropTypes.arrayOf(PropTypes.shape({
+    title: PropTypes.string.isRequired,
+    keys: PropTypes.arrayOf(PropTypes.string).isRequired,
+  })).isRequired,
+};
 
 export default ShortcutsSection;

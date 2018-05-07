@@ -14,7 +14,10 @@
       "browser": true,
       "node": true
     },
+    "globals": {
+      "chrome": false
+    },
     "rules": {
         "react/jsx-filename-extension": ["error", { "extensions": [".js", ".jsx"] }]
-      }
+    }
   }

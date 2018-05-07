@@ -1,10 +1,7 @@
-'use strict';
-
 class Tabify {
-
-    static get ID() {
-        return "apalidngjepaamogeecfdbecddlmolpg";
-    }
+  static get ID() {
+    return 'apalidngjepaamogeecfdbecddlmolpg';
+  }
 }
 
-export { Tabify }
+export default Tabify;
