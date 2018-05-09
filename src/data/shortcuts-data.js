@@ -6,6 +6,7 @@ const shortcutsData = [
   {
     title: "Global mute/unmute tabs",
     keys: ["Ctrl", "Shift", "1"]
-  }];
+  }
+];
 
 export default shortcutsData;
