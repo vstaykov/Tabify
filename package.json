@@ -11,7 +11,6 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-preset-env": "^1.6.1",
-    "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babelify": "^8.0.0",
     "browserify": "^16.2.0",
@@ -33,8 +32,7 @@
   "scripts": {
     "start": "npm run lint:watch",
     "build": "npm run lint & npm run build:eventPage & npm run build:popup",
-    "build:eventPage":
-      "browserify src/event-page.js src/commands-executor.js -o dist/event-page.js -t babelify",
+    "build:eventPage": "browserify src/event-page.js src/commands-executor.js -o dist/event-page.js -t babelify",
     "build:popup": "browserify src/popup.js -o dist/popup.js -t babelify",
     "lint": "esw src",
     "lint:watch": "npm run lint -- --watch",
