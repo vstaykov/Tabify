@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "npm run lint:watch",
-    "build": "npm run lint & npm run build:eventPage & npm run build:popup",
+    "build": "bash build/build.sh",
     "build:eventPage": "browserify src/event-page.js src/commands-executor.js -o dist/event-page.js -t babelify",
     "build:popup": "browserify src/popup.js -o dist/popup.js -t babelify",
     "lint": "esw src",
