@@ -1,4 +1,4 @@
-# Tabify ![alt text](icons/tabs_32.png "Tabify")
+#Tabify [![Build Status](https://travis-ci.org/vstaykov/Tabify.svg?branch=master)](https://travis-ci.org/vstaykov/Tabify)
 
 Google Chrome extension for managing tabs
 ***
