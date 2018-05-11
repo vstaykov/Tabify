@@ -1,6 +1,6 @@
 import Tabify from "./tabify";
 
-class TabsManager {
+class TabsService {
   muteTabs() {
     const query = { muted: false };
 
@@ -43,4 +43,4 @@ class TabsManager {
   }
 }
 
-export default TabsManager;
+export default TabsService;

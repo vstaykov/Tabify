@@ -1,8 +1,8 @@
-import TabsManager from "./tabs-manager";
+import TabsService from "./tabs-service";
 
 class CommandsExecutor {
   constructor() {
-    this.tabsManager = new TabsManager();
+    this.tabsService = new TabsService();
     this.muted = false;
   }
 
@@ -20,10 +20,10 @@ class CommandsExecutor {
 
   toggleQuiteMode() {
     if (this.muted) {
-      this.tabsManager.unmuteTabs();
+      this.tabsService.unmuteTabs();
       this.muted = false;
     } else {
-      this.tabsManager.muteTabs();
+      this.tabsService.muteTabs();
       this.muted = true;
     }
   }
