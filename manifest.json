@@ -10,6 +10,7 @@
         "64": "icons/tabs_64.png",
         "128": "icons/tabs_128.png"
     },
+    "minimum_chrome_version": "23",
     "browser_action": {
         "default_icon": "icons/tabs_512.png",
         "default_popup": "public/html/popup.html"
