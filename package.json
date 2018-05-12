@@ -16,6 +16,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
+    "eslint-loader": "^2.0.0",
     "eslint-plugin-import": "^2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.6.0",
@@ -32,7 +33,7 @@
   },
   "scripts": {
     "start": "npm run lint:watch",
-    "build": "npm run lint && npm run build:dev",
+    "build": "npm run build:dev",
     "build:dev": "npx webpack --config webpack.config.dev.js",
     "lint": "esw src",
     "lint:watch": "npm run lint -- --watch",

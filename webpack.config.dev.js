@@ -3,7 +3,7 @@ var path = require('path');
 module.exports = {
   mode: "development",
   devtool: "inline-source-map",
-  entry:{
+  entry: {
     eventpage: "./src/event-page.js",
     popup: "./src/popup.js"
   },
@@ -11,14 +11,22 @@ module.exports = {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist')
   },
-  module:{
-    rules:[{
+  module: {
+    rules: [{
+      enforce: "pre",
       test: /\.js$/,
-      exclude:/node_modules/,
+      exclude: /node_modules/,
+      use: {
+        loader: "eslint-loader"
+      }
+    },
+    {
+      test: /\.js$/,
+      exclude: /node_modules/,
       use: {
         loader: "babel-loader",
-        options:{
-          presets: ["env", "react" ]
+        options: {
+          presets: ["env", "react"]
         }
       }
     }]
