@@ -17,7 +17,7 @@
     },
     "background": {
         "scripts": [
-            "dist/event-page.js"
+            "dist/eventpage.bundle.js"
         ],
         "persistent": false
     },

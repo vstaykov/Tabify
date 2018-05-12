@@ -10,10 +10,9 @@
   "homepage": "https://github.com/vstaykov/tabify#readme",
   "devDependencies": {
     "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
-    "babelify": "^8.0.0",
-    "browserify": "^16.2.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -22,7 +21,9 @@
     "eslint-plugin-prettier": "^2.6.0",
     "eslint-plugin-react": "^7.7.0",
     "eslint-watch": "^3.1.4",
-    "prettier": "1.12.1"
+    "prettier": "1.12.1",
+    "webpack": "^4.8.2",
+    "webpack-cli": "^2.1.3"
   },
   "dependencies": {
     "prop-types": "^15.6.1",
@@ -31,9 +32,8 @@
   },
   "scripts": {
     "start": "npm run lint:watch",
-    "build": "npm run lint && npm run build:eventPage && npm run build:popup",
-    "build:eventPage": "browserify src/event-page.js src/commands-executor.js -o dist/event-page.js -t babelify",
-    "build:popup": "browserify src/popup.js -o dist/popup.js -t babelify",
+    "build": "npm run lint && npm run build:dev",
+    "build:dev": "npx webpack --config webpack.config.dev.js",
     "lint": "esw src",
     "lint:watch": "npm run lint -- --watch",
     "prettier": "prettier src/**/*.js --write"
