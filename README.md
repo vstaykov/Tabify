@@ -10,9 +10,9 @@ Google Chrome extension for managing tabs
 3. Mute/Unmute tabs with Ctrl/Command+Shift+1 when Chrome is not in focus
 ***
 
-## Build and Install
+## Dev Build and Install
 1. Run **npm install** in root
-2. Run **npm run build** in root
+2. Run **npm run build:dev** in root
 3. Add the extension in Chrome in **Developer mode**
    1. Open **chrome://extensions** in Chrome
    2. Enable **Developer mode**
