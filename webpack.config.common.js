@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
   entry: {
-    eventpage: "./src/event-page.js",
+    backgroundscript: "./src/background-script.js",
     popup: "./src/popup.js"
   },
   output: {
