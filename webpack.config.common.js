@@ -3,7 +3,8 @@ var path = require('path');
 module.exports = {
   entry: {
     backgroundscript: "./src/background-script.js",
-    popup: "./src/popup.js"
+    popup: "./src/popup.js",
+    options: "./src/options.js"
   },
   output: {
     filename: '[name].bundle.js',
