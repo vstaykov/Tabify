@@ -11,10 +11,10 @@ const WebPageList = props =>
       <div className="thumbnail-container default-thumbnail" />
     );
 
-    if (webPage.thumbnailSrc !== "") {
+    if (webPage.thumbnailSrc && webPage.thumbnailSrc !== "") {
       thumbnailElement = (
         <div className="thumbnail-container">
-          <image src="" />
+          <img src={webPage.thumbnailSrc} alt={webPage.pageUrl} />
         </div>
       );
     }
