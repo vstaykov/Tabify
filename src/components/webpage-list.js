@@ -20,7 +20,7 @@ const WebPageList = props =>
     }
 
     return (
-      <div>
+      <div key={webPage.pageUrl}>
         <div>
           <img src={favIconUrl} title="" alt="" />
           {webPage.title}
