@@ -21,6 +21,10 @@
         ],
         "persistent": false
     },
+    "options_ui": {
+        "page": "public/html/options.html",
+        "open_in_tab": true
+    },
     "commands": {
         "toggle-quite-mode": {
             "suggested_key": {
