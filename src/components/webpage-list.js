@@ -13,6 +13,7 @@ const WebPageList = props =>
           <img src={favIconUrl} title="" alt="" />
           {webPage.title}
         </div>
+        <div>{webPage.pageUrl}</div>
         <div>
           <i className="fa fa-trash" />
           <label htmlFor="slider" className="switch">
