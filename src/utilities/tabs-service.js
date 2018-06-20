@@ -1,4 +1,4 @@
-import Tabify from "./tabify";
+import Tabify from "./../tabify";
 
 class TabsService {
   muteTabs() {
