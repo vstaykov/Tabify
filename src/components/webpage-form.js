@@ -27,8 +27,9 @@ class WebpageForm extends React.Component {
   }
 
   handleSubmit(event) {
-    this.props.submit(this.state.title, this.state.pageUrl);
     event.preventDefault();
+    event.stopPropagation();
+    this.props.submit(this.state.title, this.state.pageUrl);
   }
 
   render() {
