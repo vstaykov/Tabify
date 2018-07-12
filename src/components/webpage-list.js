@@ -30,7 +30,7 @@ WebPageList.propTypes = {
     PropTypes.shape({
       title: PropTypes.string.isRequired,
       pageUrl: PropTypes.string.isRequired,
-      isPinned: PropTypes.bool.isRequired,
+      isPinned: PropTypes.bool.isRequired
     })
   ).isRequired
 };
