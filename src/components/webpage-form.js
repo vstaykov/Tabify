@@ -8,11 +8,13 @@ class WebpageForm extends React.Component {
 
     this.state = {
       title: "",
-      pageUrl: ""
+      pageUrl: "",
+      pinned: false
     };
 
     this.handleTitleChange = this.handleTitleChange.bind(this);
     this.handlePageUrlChange = this.handlePageUrlChange.bind(this);
+    this.handlePinnedChange = this.handlePinnedChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -26,10 +28,14 @@ class WebpageForm extends React.Component {
     event.preventDefault();
   }
 
+  handlePinnedChange(event) {
+    this.setState({ pinned: event.target.checked });
+  }
+
   handleSubmit(event) {
     event.preventDefault();
     event.stopPropagation();
-    this.props.submit(this.state.title, this.state.pageUrl);
+    this.props.submit(this.state.title, this.state.pageUrl, this.state.pinned);
   }
 
   render() {
@@ -52,6 +58,16 @@ class WebpageForm extends React.Component {
             value={this.state.pageUrl}
             onChange={this.handlePageUrlChange}
           />
+        </label>
+        <label htmlFor="pinned" className="switch">
+          Pinned
+          <input
+            id="pinned"
+            type="checkbox"
+            checked={this.state.pinned}
+            onChange={this.handlePinnedChange}
+          />
+          <span className="slider round" />
         </label>
 
         <input type="submit" value="Add" />
