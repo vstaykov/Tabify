@@ -17,7 +17,7 @@ const WebPageList = props =>
         <div>
           <i className="fa fa-trash" />
           <label htmlFor="slider" className="switch">
-            <input id="slider" type="checkbox" checked="" />
+            <input id="slider" type="checkbox" checked={webPage.isPinned} />
             <span className="slider round" />
           </label>
         </div>
@@ -29,7 +29,8 @@ WebPageList.propTypes = {
   webPages: PropTypes.arrayOf(
     PropTypes.shape({
       title: PropTypes.string.isRequired,
-      pageUrl: PropTypes.string.isRequired
+      pageUrl: PropTypes.string.isRequired,
+      isPinned: PropTypes.bool.isRequired,
     })
   ).isRequired
 };
