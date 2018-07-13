@@ -8,6 +8,7 @@ Google Chrome extension for managing tabs
 1. Mute all unmuted tabs with Ctrl + Q/Command + Shift + Q
 2. Unmute all muted by this extension tabs with Ctrl + Q/Command + Shift + Q
 3. Mute/Unmute tabs with Ctrl/Command+Shift+1 when Chrome is not in focus
+4. Open all saved web pages with Ctrl/Command + I
 ***
 
 ## Dev Build and Install
