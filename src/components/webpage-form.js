@@ -11,32 +11,27 @@ class WebpageForm extends React.Component {
       pageUrl: "",
       pinned: false
     };
-
-    this.handleTitleChange = this.handleTitleChange.bind(this);
-    this.handlePageUrlChange = this.handlePageUrlChange.bind(this);
-    this.handlePinnedChange = this.handlePinnedChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleTitleChange(event) {
+  handleTitleChange = event => {
     this.setState({ title: event.target.value });
     event.preventDefault();
-  }
+  };
 
-  handlePageUrlChange(event) {
+  handlePageUrlChange = event => {
     this.setState({ pageUrl: event.target.value });
     event.preventDefault();
-  }
+  };
 
-  handlePinnedChange(event) {
+  handlePinnedChange = event => {
     this.setState({ pinned: event.target.checked });
-  }
+  };
 
-  handleSubmit(event) {
+  handleSubmit = event => {
     event.preventDefault();
     event.stopPropagation();
     this.props.submit(this.state.title, this.state.pageUrl, this.state.pinned);
-  }
+  };
 
   render() {
     return (
