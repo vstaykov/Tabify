@@ -1,6 +1,13 @@
 import Tabify from "./../tabify";
 
 class TabsService {
+  createTab = (url, pinned) => {
+    chrome.tabs.create({
+      url,
+      pinned
+    });
+  };
+
   muteTabs() {
     const query = { muted: false };
 

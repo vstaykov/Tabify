@@ -1,4 +1,5 @@
 import TabsService from "./tabs-service";
+import WebPageStorageService from "./webpage-storage-service";
 
 class CommandsExecutor {
   constructor() {
@@ -11,6 +12,9 @@ class CommandsExecutor {
       case "toggle-quite-mode":
       case "global-toggle-quite-mode":
         this.toggleQuiteMode();
+        break;
+      case "open-saved-web-pages":
+        this.openSavedWebPages();
         break;
       default:
         console.log(`Command ${command} detected but not handled.`);
@@ -27,6 +31,14 @@ class CommandsExecutor {
       this.muted = true;
     }
   }
+
+  openSavedWebPages = () => {
+    WebPageStorageService.getWebPages().then(webPages => {
+      webPages.forEach(webPage => {
+        this.tabsService.createTab(webPage.pageUrl, webPage.isPinned);
+      });
+    });
+  };
 }
 
 export default CommandsExecutor;

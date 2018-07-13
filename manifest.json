@@ -1,50 +1,56 @@
 {
-    "manifest_version": 2,
-    "name": "Tabify",
-    "version": "1.0",
-    "description": "Manages different aspects of your tabs interactions",
-    "icons": {
-        "16": "icons/tabs_16.png",
-        "24": "icons/tabs_24.png",
-        "32": "icons/tabs_32.png",
-        "64": "icons/tabs_64.png",
-        "128": "icons/tabs_128.png"
+  "manifest_version": 2,
+  "name": "Tabify",
+  "version": "1.0",
+  "description": "Manages different aspects of your tabs interactions",
+  "icons": {
+    "16": "icons/tabs_16.png",
+    "24": "icons/tabs_24.png",
+    "32": "icons/tabs_32.png",
+    "64": "icons/tabs_64.png",
+    "128": "icons/tabs_128.png"
+  },
+  "minimum_chrome_version": "23",
+  "browser_action": {
+    "default_icon": "icons/tabs_512.png",
+    "default_popup": "public/html/popup.html"
+  },
+  "background": {
+    "scripts": [
+      "dist/backgroundscript.bundle.js"
+    ],
+    "persistent": false
+  },
+  "options_ui": {
+    "page": "public/html/options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "toggle-quite-mode": {
+      "suggested_key": {
+        "default": "Ctrl+Q",
+        "mac": "Command+Shift+Q"
+      },
+      "description": "Toggle quite mode on or off"
     },
-    "minimum_chrome_version": "23",
-    "browser_action": {
-        "default_icon": "icons/tabs_512.png",
-        "default_popup": "public/html/popup.html"
+    "global-toggle-quite-mode": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+1",
+        "mac": "Command+Shift+1"
+      },
+      "description": "Toggle quite mode on or off",
+      "global": true
     },
-    "background": {
-        "scripts": [
-            "dist/backgroundscript.bundle.js"
-        ],
-        "persistent": false
-    },
-    "options_ui": {
-        "page": "public/html/options.html",
-        "open_in_tab": true
-    },
-    "commands": {
-        "toggle-quite-mode": {
-            "suggested_key": {
-                "default": "Ctrl+Q",
-                "mac": "Command+Shift+Q"
-            },
-            "description": "Toggle quite mode on or off"
-        },
-        "global-toggle-quite-mode": {
-            "suggested_key": {
-                "default": "Ctrl+Shift+1",
-                "mac": "Command+Shift+1"
-            },
-            "description": "Toggle quite mode on or off",
-            "global": true
-        }
-    },
-    "permissions": [
-        "tabs",
-        "commands",
-        "storage"
-    ]
+    "open-saved-web-pages": {
+      "suggested_key": {
+        "default": "Ctrl+I"
+      },
+      "description": "Open all saved web pages"
+    }
+  },
+  "permissions": [
+    "tabs",
+    "commands",
+    "storage"
+  ]
 }
