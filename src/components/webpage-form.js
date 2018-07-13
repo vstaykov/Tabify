@@ -7,16 +7,10 @@ class WebpageForm extends React.Component {
     this.props = props;
 
     this.state = {
-      title: "",
       pageUrl: "",
       pinned: false
     };
   }
-
-  handleTitleChange = event => {
-    this.setState({ title: event.target.value });
-    event.preventDefault();
-  };
 
   handlePageUrlChange = event => {
     this.setState({ pageUrl: event.target.value });
@@ -30,9 +24,8 @@ class WebpageForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     event.stopPropagation();
-    this.props.submit(this.state.title, this.state.pageUrl, this.state.pinned);
+    this.props.submit(this.state.pageUrl, this.state.pinned);
     this.setState({
-      title: "",
       pageUrl: "",
       pinned: false
     });
@@ -41,15 +34,6 @@ class WebpageForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label htmlFor="title">
-          Title
-          <input
-            id="title"
-            type="text"
-            value={this.state.title}
-            onChange={this.handleTitleChange}
-          />
-        </label>
         <label htmlFor="pageUrl">
           Page URL
           <input

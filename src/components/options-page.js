@@ -14,8 +14,8 @@ class OptionsPage extends React.Component {
     this.updateWebPages();
   }
 
-  handleFormSubmit = (title, url, pinned) => {
-    WebPageStorageService.saveWebPage(title, url, pinned).then(() => {
+  handleFormSubmit = (url, pinned) => {
+    WebPageStorageService.saveWebPage(url, pinned).then(() => {
       this.updateWebPages();
     });
   };

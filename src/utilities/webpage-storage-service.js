@@ -15,8 +15,8 @@ class WebPageStorageService {
     return getWebPagesPromise;
   }
 
-  static saveWebPage(title, url, pinned) {
-    const newPage = new WebPage(title, url, pinned);
+  static saveWebPage(url, pinned) {
+    const newPage = new WebPage(url, pinned);
 
     const setDataPromise = new Promise(resolve => {
       WebPageStorageService.getWebPages().then(webPages => {

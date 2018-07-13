@@ -1,6 +1,5 @@
 class WebPage {
-  constructor(title, url, pinned) {
-    this.title = title;
+  constructor(url, pinned) {
     this.pageUrl = url;
     this.isPinned = pinned;
   }
