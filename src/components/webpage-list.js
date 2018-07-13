@@ -11,7 +11,7 @@ const WebPageList = props =>
       <div key={webPage.pageUrl}>
         <div>
           <img src={favIconUrl} title="" alt="" />
-          <a href={webPage.pageUrl} target="_blank">
+          <a href={webPage.pageUrl} target="_blank" rel="noopener noreferrer">
             {webPage.pageUrl}
           </a>
         </div>
