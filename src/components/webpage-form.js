@@ -31,6 +31,11 @@ class WebpageForm extends React.Component {
     event.preventDefault();
     event.stopPropagation();
     this.props.submit(this.state.title, this.state.pageUrl, this.state.pinned);
+    this.setState({
+      title: "",
+      pageUrl: "",
+      pinned: false
+    });
   };
 
   render() {
