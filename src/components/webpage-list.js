@@ -17,7 +17,12 @@ const WebPageList = props =>
         <div>
           <i className="fa fa-trash" />
           <label htmlFor="slider" className="switch">
-            <input id="slider" type="checkbox" checked={webPage.isPinned} />
+            <input
+              id="slider"
+              type="checkbox"
+              checked={webPage.isPinned}
+              readOnly="true"
+            />
             <span className="slider round" />
           </label>
         </div>
