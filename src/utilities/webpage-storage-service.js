@@ -4,7 +4,11 @@ class WebPageStorageService {
   static getWebPages() {
     const getWebPagesPromise = new Promise(resolve => {
       chrome.storage.sync.get("tabifyWebPages", result => {
-        resolve(result.tabifyWebPages);
+        const webPages =
+          result.tabifyWebPages !== null && result.tabifyWebPages !== undefined
+            ? result.tabifyWebPages
+            : [];
+        resolve(webPages);
       });
     });
 
