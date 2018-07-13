@@ -11,7 +11,9 @@ const WebPageList = props =>
       <div key={webPage.pageUrl}>
         <div>
           <img src={favIconUrl} title="" alt="" />
-          {webPage.pageUrl}
+          <a href={webPage.pageUrl} target="_blank">
+            {webPage.pageUrl}
+          </a>
         </div>
         <div>
           <i className="fa fa-trash" />
