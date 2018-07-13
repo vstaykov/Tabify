@@ -4,7 +4,6 @@ class WebPageStorageService {
   static getWebPages() {
     const getWebPagesPromise = new Promise(resolve => {
       chrome.storage.sync.get("tabifyWebPages", result => {
-        console.log(result.tabifyWebPages);
         resolve(result.tabifyWebPages);
       });
     });
