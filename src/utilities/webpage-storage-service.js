@@ -14,9 +14,13 @@ class WebPageStorageService {
 
   static saveWebPage(title, url, pinned) {
     const newPage = new WebPage(title, url, pinned);
+
     const setDataPromise = new Promise(resolve => {
-      chrome.storage.sync.set({ tabifyWebPages: [newPage] }, result => {
-        resolve(result);
+      WebPageStorageService.getWebPages().then(webPages => {
+        webPages.push(newPage);
+        chrome.storage.sync.set({ tabifyWebPages: webPages }, result => {
+          resolve(result);
+        });
       });
     });
 
