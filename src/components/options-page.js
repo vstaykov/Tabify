@@ -8,26 +8,25 @@ class OptionsPage extends React.Component {
     super(props);
 
     this.state = { webPages: [] };
-    this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
   componentWillMount() {
     this.updateWebPages();
   }
 
-  handleFormSubmit(title, url, pinned) {
+  handleFormSubmit = (title, url, pinned) => {
     WebPageStorageService.saveWebPage(title, url, pinned).then(() => {
       this.updateWebPages();
     });
-  }
+  };
 
-  updateWebPages() {
+  updateWebPages = () => {
     WebPageStorageService.getWebPages().then(pages => {
       if (pages !== undefined) {
         this.setState({ webPages: pages });
       }
     });
-  }
+  };
 
   render() {
     return (
