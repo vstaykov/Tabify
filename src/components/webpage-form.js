@@ -54,14 +54,15 @@ class WebpageForm extends React.Component {
           <span className="slider round" />
         </label>
 
-        <input type="submit" value="Add" />
+        <input type="submit" value="Add" disabled={!this.props.enabled} />
       </form>
     );
   }
 }
 
 WebpageForm.propTypes = {
-  submit: PropTypes.func.isRequired
+  submit: PropTypes.func.isRequired,
+  enabled: PropTypes.bool.isRequired
 };
 
 export default WebpageForm;

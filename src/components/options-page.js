@@ -3,6 +3,8 @@ import WebPageForm from "./webpage-form";
 import WebPageList from "./webpage-list";
 import WebPageStorageService from "./../utilities/webpage-storage-service";
 
+const maxWebPagesCount = 10;
+
 class OptionsPage extends React.Component {
   constructor(props) {
     super(props);
@@ -31,8 +33,14 @@ class OptionsPage extends React.Component {
   render() {
     return (
       <div>
-        <WebPageForm submit={this.handleFormSubmit} />
-        <WebPageList webPages={this.state.webPages} />
+        <WebPageForm
+          submit={this.handleFormSubmit}
+          enabled={this.state.webPages.length < maxWebPagesCount}
+        />
+        <WebPageList
+          webPages={this.state.webPages}
+          maxWebPagesCount={maxWebPagesCount}
+        />
       </div>
     );
   }
