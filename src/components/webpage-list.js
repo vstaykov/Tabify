@@ -43,7 +43,6 @@ const WebPageList = props => (
 WebPageList.propTypes = {
   webPages: PropTypes.arrayOf(
     PropTypes.shape({
-      title: PropTypes.string.isRequired,
       pageUrl: PropTypes.string.isRequired,
       isPinned: PropTypes.bool.isRequired
     })
