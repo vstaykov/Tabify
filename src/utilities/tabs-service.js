@@ -8,7 +8,7 @@ class TabsService {
     });
   };
 
-  muteTabs() {
+  muteTabs = () => {
     const query = { muted: false };
 
     this.getTabs(query).then(tabs => {
@@ -16,9 +16,9 @@ class TabsService {
         chrome.tabs.update(tab.id, { muted: true });
       });
     });
-  }
+  };
 
-  unmuteTabs() {
+  unmuteTabs = () => {
     /* eslint-disable prefer-destructuring */
     const query = { muted: true };
 
@@ -34,11 +34,11 @@ class TabsService {
         }
       });
     });
-  }
+  };
   /* eslint-enable prefer-destructuring */
 
   /* eslint-disable class-methods-use-this */
-  getTabs(query) {
+  getTabs = query => {
     /* eslint-enable class-methods-use-this */
     const gatTabsPromise = new Promise(resolve => {
       chrome.tabs.query(query, tabs => {
@@ -47,7 +47,7 @@ class TabsService {
     });
 
     return gatTabsPromise;
-  }
+  };
 }
 
 export default TabsService;
