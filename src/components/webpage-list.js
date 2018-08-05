@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 const WebPageList = props => (
   <div>
@@ -23,7 +25,6 @@ const WebPageList = props => (
             </a>
           </div>
           <div>
-            <i className="fa fa-trash" />
             <label htmlFor="slider" className="switch">
               <input
                 id="slider"
@@ -33,6 +34,7 @@ const WebPageList = props => (
               />
               <span className="slider round" />
             </label>
+            <FontAwesomeIcon icon={faTrash} size="xs" />
           </div>
         </div>
       );
