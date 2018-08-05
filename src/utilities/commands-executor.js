@@ -7,7 +7,7 @@ class CommandsExecutor {
     this.muted = false;
   }
 
-  executeCommand(command) {
+  executeCommand = command => {
     switch (command) {
       case "toggle-quite-mode":
       case "global-toggle-quite-mode":
@@ -20,9 +20,9 @@ class CommandsExecutor {
         console.log(`Command ${command} detected but not handled.`);
         break;
     }
-  }
+  };
 
-  toggleQuiteMode() {
+  toggleQuiteMode = () => {
     if (this.muted) {
       this.tabsService.unmuteTabs();
       this.muted = false;
@@ -30,7 +30,7 @@ class CommandsExecutor {
       this.tabsService.muteTabs();
       this.muted = true;
     }
-  }
+  };
 
   openSavedWebPages = () => {
     WebPageStorageService.getWebPages().then(webPages => {
