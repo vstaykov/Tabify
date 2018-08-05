@@ -34,7 +34,9 @@ const WebPageList = props => (
               />
               <span className="slider round" />
             </label>
-            <FontAwesomeIcon icon={faTrash} size="xs" />
+            <button onClick={() => props.deleteWebPage(webPage)}>
+              <FontAwesomeIcon icon={faTrash} size="xs" />
+            </button>
           </div>
         </div>
       );

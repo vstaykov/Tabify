@@ -31,6 +31,12 @@ class OptionsPage extends React.Component {
     });
   };
 
+  deleteWebPage = webPage => {
+    this.webPageStorageService.deleteWebPage(webPage).then(() => {
+      this.updateWebPages();
+    });
+  };
+
   render() {
     return (
       <div>
@@ -41,6 +47,7 @@ class OptionsPage extends React.Component {
         <WebPageList
           webPages={this.state.webPages}
           maxWebPagesCount={maxWebPagesCount}
+          deleteWebPage={this.deleteWebPage}
         />
       </div>
     );
