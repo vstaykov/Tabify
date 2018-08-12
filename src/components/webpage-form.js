@@ -1,6 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+const URLREGEX = /^(ftp|http|https):\/\/[^ "]+$/;
+const INVALIDURLMESSAGE =
+  "Please provide a valid URL in the format ftp|http|https://<url with no spaces or quotes>";
+
 class WebpageForm extends React.Component {
   constructor(props) {
     super(props);
@@ -8,7 +12,8 @@ class WebpageForm extends React.Component {
 
     this.state = {
       pageUrl: "",
-      pinned: false
+      pinned: false,
+      urlDataIsValid: true
     };
   }
 
@@ -24,37 +29,55 @@ class WebpageForm extends React.Component {
   handleSubmit = event => {
     event.preventDefault();
     event.stopPropagation();
-    this.props.submit(this.state.pageUrl, this.state.pinned);
-    this.setState({
-      pageUrl: "",
-      pinned: false
-    });
+
+    if (this.validateUrlData()) {
+      this.props.submit(this.state.pageUrl, this.state.pinned);
+      this.setState({
+        pageUrl: "",
+        pinned: false,
+        urlDataIsValid: true
+      });
+    } else {
+      this.setState({
+        urlDataIsValid: false
+      });
+    }
+  };
+
+  validateUrlData = () => {
+    const urlIsValid = URLREGEX.test(this.state.pageUrl);
+    return urlIsValid;
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label htmlFor="pageUrl">
-          Page URL
-          <input
-            id="pageUrl"
-            type="text"
-            value={this.state.pageUrl}
-            onChange={this.handlePageUrlChange}
-          />
-        </label>
-        <label htmlFor="pinned" className="switch">
-          Pinned
-          <input
-            id="pinned"
-            type="checkbox"
-            checked={this.state.pinned}
-            onChange={this.handlePinnedChange}
-          />
-          <span className="slider round" />
-        </label>
+      <form ref={this.formElement} onSubmit={this.handleSubmit}>
+        <div>
+          <label htmlFor="pageUrl">
+            Page URL
+            <input
+              id="pageUrl"
+              type="text"
+              value={this.state.pageUrl}
+              onChange={this.handlePageUrlChange}
+            />
+          </label>
+          <label htmlFor="pinned" className="switch">
+            Pinned
+            <input
+              id="pinned"
+              type="checkbox"
+              checked={this.state.pinned}
+              onChange={this.handlePinnedChange}
+            />
+            <span className="slider round" />
+          </label>
 
-        <input type="submit" value="Add" disabled={!this.props.enabled} />
+          <input type="submit" value="Add" disabled={!this.props.enabled} />
+        </div>
+        {this.state.urlDataIsValid ? null : (
+          <div className="invalid-form-data">{INVALIDURLMESSAGE}</div>
+        )}
       </form>
     );
   }
