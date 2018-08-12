@@ -19,12 +19,11 @@ class TabsService {
   };
 
   unmuteTabs = () => {
-    /* eslint-disable prefer-destructuring */
     const query = { muted: true };
 
     this.getTabs(query).then(tabs => {
       tabs.forEach(tab => {
-        const mutedInfo = tab.mutedInfo;
+        const { mutedInfo } = tab;
 
         if (
           mutedInfo.reason === "extension" &&
@@ -35,7 +34,6 @@ class TabsService {
       });
     });
   };
-  /* eslint-enable prefer-destructuring */
 
   /* eslint-disable class-methods-use-this */
   getTabs = query => {
