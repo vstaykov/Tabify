@@ -1,7 +1,7 @@
 import WebPage from "./../models/webpage";
 
 class WebPageStorageService {
-  getWebPages = () => {
+  static getWebPages = () => {
     const getWebPagesPromise = new Promise(resolve => {
       chrome.storage.sync.get("tabifyWebPages", result => {
         const webPages =
@@ -15,11 +15,11 @@ class WebPageStorageService {
     return getWebPagesPromise;
   };
 
-  saveWebPage = (url, pinned) => {
+  static saveWebPage = (url, pinned) => {
     const newPage = new WebPage(url, pinned);
 
     const setDataPromise = new Promise(resolve => {
-      this.getWebPages().then(webPages => {
+      WebPageStorageService.getWebPages().then(webPages => {
         webPages.push(newPage);
         chrome.storage.sync.set({ tabifyWebPages: webPages }, result => {
           resolve(result);
@@ -30,9 +30,9 @@ class WebPageStorageService {
     return setDataPromise;
   };
 
-  deleteWebPage = webPage => {
+  static deleteWebPage = webPage => {
     const deleteWebPagePromise = new Promise(resolve => {
-      this.getWebPages().then(webPages => {
+      WebPageStorageService.getWebPages().then(webPages => {
         const webPageIndex = webPages.findIndex(
           wp =>
             wp.pageUrl === webPage.pageUrl && wp.isPinned === webPage.isPinned

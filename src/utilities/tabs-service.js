@@ -11,7 +11,7 @@ class TabsService {
   muteTabs = () => {
     const query = { muted: false };
 
-    this.getTabs(query).then(tabs => {
+    TabsService.getTabs(query).then(tabs => {
       tabs.forEach(tab => {
         chrome.tabs.update(tab.id, { muted: true });
       });
@@ -21,7 +21,7 @@ class TabsService {
   unmuteTabs = () => {
     const query = { muted: true };
 
-    this.getTabs(query).then(tabs => {
+    TabsService.getTabs(query).then(tabs => {
       tabs.forEach(tab => {
         const { mutedInfo } = tab;
 
@@ -35,9 +35,7 @@ class TabsService {
     });
   };
 
-  /* eslint-disable class-methods-use-this */
-  getTabs = query => {
-    /* eslint-enable class-methods-use-this */
+  static getTabs = query => {
     const gatTabsPromise = new Promise(resolve => {
       chrome.tabs.query(query, tabs => {
         resolve(tabs);
