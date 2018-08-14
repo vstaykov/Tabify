@@ -51,7 +51,8 @@ WebPageList.propTypes = {
       isPinned: PropTypes.bool.isRequired
     })
   ).isRequired,
-  maxWebPagesCount: PropTypes.number.isRequired
+  maxWebPagesCount: PropTypes.number.isRequired,
+  deleteWebPage: PropTypes.func.isRequired
 };
 
 export default WebPageList;
