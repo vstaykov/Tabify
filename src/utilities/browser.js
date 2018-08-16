@@ -10,8 +10,8 @@ class Browser {
     });
   };
 
-  updateTab = (tab, data) => {
-    this.chrome.tabs.update(tab.id, data);
+  updateTab = (tabId, data) => {
+    this.chrome.tabs.update(tabId, data);
   };
 
   getTabs = query => {
