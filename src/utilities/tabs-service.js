@@ -1,19 +1,21 @@
 import Tabify from "./../tabify";
+import Browser from "./browser";
 
 class TabsService {
+  constructor() {
+    this.browser = new Browser();
+  }
+
   createTab = (url, pinned) => {
-    chrome.tabs.create({
-      url,
-      pinned
-    });
+    this.browser.createTab(url, pinned);
   };
 
   muteTabs = () => {
     const query = { muted: false };
 
-    TabsService.getTabs(query).then(tabs => {
+    this.browser.getTabs(query).then(tabs => {
       tabs.forEach(tab => {
-        chrome.tabs.update(tab.id, { muted: true });
+        this.browser.updateTab(tab.id, { muted: true });
       });
     });
   };
@@ -21,7 +23,7 @@ class TabsService {
   unmuteTabs = () => {
     const query = { muted: true };
 
-    TabsService.getTabs(query).then(tabs => {
+    this.browser.getTabs(query).then(tabs => {
       tabs.forEach(tab => {
         const { mutedInfo } = tab;
 
@@ -29,20 +31,10 @@ class TabsService {
           mutedInfo.reason === "extension" &&
           mutedInfo.extensionId === Tabify.ID
         ) {
-          chrome.tabs.update(tab.id, { muted: false });
+          this.browser.updateTab(tab.id, { muted: false });
         }
       });
     });
-  };
-
-  static getTabs = query => {
-    const gatTabsPromise = new Promise(resolve => {
-      chrome.tabs.query(query, tabs => {
-        resolve(tabs);
-      });
-    });
-
-    return gatTabsPromise;
   };
 }
 
