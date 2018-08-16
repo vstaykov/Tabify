@@ -4,6 +4,7 @@ import WebPageStorageService from "./webpage-storage-service";
 class CommandsExecutor {
   constructor() {
     this.tabsService = new TabsService();
+    this.webPageStorageService = new WebPageStorageService();
     this.muted = false;
   }
 
@@ -33,7 +34,7 @@ class CommandsExecutor {
   };
 
   openSavedWebPages = () => {
-    WebPageStorageService.getWebPages().then(webPages => {
+    this.webPageStorageService.getWebPages().then(webPages => {
       webPages.forEach(webPage => {
         this.tabsService.createTab(webPage.pageUrl, webPage.isPinned);
       });

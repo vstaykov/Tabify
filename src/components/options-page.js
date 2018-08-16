@@ -9,6 +9,7 @@ class OptionsPage extends React.Component {
   constructor(props) {
     super(props);
 
+    this.webPageStorageService = new WebPageStorageService();
     this.state = { webPages: [] };
   }
 
@@ -17,13 +18,13 @@ class OptionsPage extends React.Component {
   }
 
   handleFormSubmit = (url, pinned) => {
-    WebPageStorageService.saveWebPage(url, pinned).then(() => {
+    this.webPageStorageService.saveWebPage(url, pinned).then(() => {
       this.updateWebPages();
     });
   };
 
   updateWebPages = () => {
-    WebPageStorageService.getWebPages().then(pages => {
+    this.webPageStorageService.getWebPages().then(pages => {
       if (pages !== undefined) {
         this.setState({ webPages: pages });
       }
@@ -31,7 +32,7 @@ class OptionsPage extends React.Component {
   };
 
   deleteWebPage = webPage => {
-    WebPageStorageService.deleteWebPage(webPage).then(() => {
+    this.webPageStorageService.deleteWebPage(webPage).then(() => {
       this.updateWebPages();
     });
   };
