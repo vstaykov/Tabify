@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 const Shortcut = props => (
-  <div>
+  <div key={props.title}>
     <div className="shortcut-title d-inline">{props.title}:</div>
     {props.keys.map((key, i) => {
       const keyElement = (
