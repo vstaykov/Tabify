@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`shortcut.js render() when given one key render key correctly 1`] = `
+<div>
+  <div
+    className="shortcut-title d-inline"
+  >
+    Foo
+    :
+  </div>
+  <span
+    className="shortcut-key text-monospace"
+  >
+    Ctrl
+  </span>
+</div>
+`;
+
+exports[`shortcut.js render() when given several keys render all keys correctly 1`] = `
+<div>
+  <div
+    className="shortcut-title d-inline"
+  >
+    Foo
+    :
+  </div>
+  <span>
+    <span
+      className="shortcut-key text-monospace"
+    >
+      Ctrl
+    </span>
+    <span
+      className="shortcut-key-concatinator"
+    >
+      +
+    </span>
+  </span>
+  <span>
+    <span
+      className="shortcut-key text-monospace"
+    >
+      Shift
+    </span>
+    <span
+      className="shortcut-key-concatinator"
+    >
+      +
+    </span>
+  </span>
+  <span>
+    <span
+      className="shortcut-key text-monospace"
+    >
+      Alt
+    </span>
+    <span
+      className="shortcut-key-concatinator"
+    >
+      +
+    </span>
+  </span>
+  <span
+    className="shortcut-key text-monospace"
+  >
+    Q
+  </span>
+</div>
+`;
