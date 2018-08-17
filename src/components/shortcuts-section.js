@@ -6,7 +6,9 @@ const ShortcutsSection = props => (
   <div className="shortcuts-section">
     <div className="shortcuts-section-title">Shortcuts Cheatsheet</div>
     <hr />
-    {props.shortcuts.map(shortcut => <Shortcut {...shortcut} key={shortcut.title} />)}
+    {props.shortcuts.map(shortcut => (
+      <Shortcut {...shortcut} key={shortcut.title} />
+    ))}
   </div>
 );
 
