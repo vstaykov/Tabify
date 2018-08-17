@@ -44,8 +44,8 @@
   "scripts": {
     "start": "npm run lint:watch",
     "test": "jest --verbose",
-    "build:prod": "npx webpack --config webpack.config.prod.js && npm test",
-    "build:dev": "npx webpack --config webpack.config.dev.js",
+    "build:prod": "webpack --config webpack.config.prod.js && npm test",
+    "build:dev": "webpack --config webpack.config.dev.js",
     "lint": "esw src",
     "lint:watch": "npm run lint -- --watch",
     "prettier": "prettier src/**/*.js --write"
