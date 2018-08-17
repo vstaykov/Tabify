@@ -110,7 +110,7 @@ describe("commands-executor.js", () => {
     });
 
     describe(`when given ${openSavedWebPagesCommand} command`, () => {
-      it("gets and opens the saved web pages", async () => {
+      it("get and open the saved web pages", async () => {
 
         WebPageStorageService.mockImplementation(() => {
           return {
