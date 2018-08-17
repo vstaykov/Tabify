@@ -12,8 +12,8 @@ Google Chrome extension for managing tabs
 ***
 
 ## Dev Build and Install
-1. Run **npm install** in root
-2. Run **npm run build:dev** in root
+1. Run **yarn** in root
+2. Run **yarn run build:dev** in root
 3. Add the extension in Chrome in **Developer mode**
    1. Open **chrome://extensions** in Chrome
    2. Enable **Developer mode**
