@@ -6,12 +6,10 @@ const Shortcut = props => (
     <div className="shortcut-title d-inline">{props.title}:</div>
     {props.keys.map((key, i) => {
       const keyElement = (
-        <span key={key.id} className="shortcut-key text-monospace">
-          {key}
-        </span>
+        <span className="shortcut-key text-monospace">{key}</span>
       );
       let resultElement = (
-        <span>
+        <span key={key}>
           {keyElement}
           <span className="shortcut-key-concatinator">+</span>
         </span>
