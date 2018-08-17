@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shortcuts-section.js render() when given one shortcut render shortcut correctly 1`] = `
+exports[`<ShortcutsSection /> render() when given one shortcut render shortcut correctly 1`] = `
 <div
   className="shortcuts-section"
 >
@@ -26,7 +26,7 @@ exports[`shortcuts-section.js render() when given one shortcut render shortcut c
 </div>
 `;
 
-exports[`shortcuts-section.js render() when given several shortcuts render all shortcuts correctly 1`] = `
+exports[`<ShortcutsSection /> render() when given several shortcuts render all shortcuts correctly 1`] = `
 <div
   className="shortcuts-section"
 >

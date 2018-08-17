@@ -2,7 +2,7 @@ import React from "react";
 import ShortcutsSection from "../../src/components/shortcuts-section";
 import renderer from "react-test-renderer";
 
-describe("shortcuts-section.js", () => {
+describe("<ShortcutsSection />", () => {
   describe("render()", () => {
     describe("when given one shortcut", () => {
       it("render shortcut correctly", () => {

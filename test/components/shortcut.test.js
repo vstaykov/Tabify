@@ -2,7 +2,7 @@ import React from "react";
 import Shortcut from "../../src/components/shortcut";
 import renderer from "react-test-renderer";
 
-describe("shortcut.js", () => {
+describe("<Shortcut />", () => {
   describe("render()", () => {
     describe("when given one key", () => {
       it("render key correctly", () => {

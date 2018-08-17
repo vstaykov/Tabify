@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`shortcut.js render() when given one key render key correctly 1`] = `
+exports[`<Shortcut /> render() when given one key render key correctly 1`] = `
 <div>
   <div
     className="shortcut-title d-inline"
@@ -16,7 +16,7 @@ exports[`shortcut.js render() when given one key render key correctly 1`] = `
 </div>
 `;
 
-exports[`shortcut.js render() when given several keys render all keys correctly 1`] = `
+exports[`<Shortcut /> render() when given several keys render all keys correctly 1`] = `
 <div>
   <div
     className="shortcut-title d-inline"
