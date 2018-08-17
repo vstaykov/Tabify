@@ -130,10 +130,8 @@ describe("commands-executor.js", () => {
         await commandsExecutor.executeCommand(openSavedWebPagesCommand);
 
         expect(createTabMock).toHaveBeenCalledTimes(2);
-        expect(createTabMock.mock.calls[0][0]).toBe("foo");
-        expect(createTabMock.mock.calls[0][1]).toBe(true);
-        expect(createTabMock.mock.calls[1][0]).toBe("bar");
-        expect(createTabMock.mock.calls[1][1]).toBe(false);
+        expect(createTabMock).toBeCalledWith("foo", true);
+        expect(createTabMock).toBeCalledWith("bar", false);
       });
     });
   });
