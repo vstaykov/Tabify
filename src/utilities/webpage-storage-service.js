@@ -1,4 +1,3 @@
-import WebPage from "./../models/webpage";
 import Browser from "./browser";
 
 class WebPageStorageService {
@@ -20,8 +19,11 @@ class WebPageStorageService {
     return getWebPagesPromise;
   };
 
-  saveWebPage = (url, pinned) => {
-    const newPage = new WebPage(url, pinned);
+  saveWebPage = (url, isPinned) => {
+    const newPage = {
+      url,
+      isPinned
+    };
 
     const setDataPromise = new Promise(resolve => {
       this.getWebPages().then(webPages => {
