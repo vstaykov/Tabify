@@ -1,0 +1,18 @@
+1. write unit tests
+2. fix UI
+3. pack extension
+4. upload extension
+
+// manifest generation during build //commands SST
+// componentdidmount
+// presentation components & container components
+// async await
+// single instance - import/export
+// promises in browser wrapper
+// access env vars in JS/Node
+// no POCs in JS
+// destructuring
+// react components + tests at the same place
+// react app boilerplate - create react app (FB) - best practices reference
+// Enzyme + snapshots library
+// Form vs separate inputs
