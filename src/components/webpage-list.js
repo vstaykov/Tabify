@@ -13,15 +13,15 @@ const WebPageList = props => (
     </div>
     {props.webPages.map(webPage => {
       const favIconUrl = `https://s2.googleusercontent.com/s2/favicons?domain_url=${
-        webPage.pageUrl
+        webPage.url
       }/&amp;alt=s&amp;sz=16`;
 
       return (
-        <div key={webPage.pageUrl}>
+        <div key={webPage.url}>
           <div>
             <img src={favIconUrl} title="" alt="" />
-            <a href={webPage.pageUrl} target="_blank" rel="noopener noreferrer">
-              {webPage.pageUrl}
+            <a href={webPage.url} target="_blank" rel="noopener noreferrer">
+              {webPage.url}
             </a>
           </div>
           <div>
@@ -47,7 +47,7 @@ const WebPageList = props => (
 WebPageList.propTypes = {
   webPages: PropTypes.arrayOf(
     PropTypes.shape({
-      pageUrl: PropTypes.string.isRequired,
+      url: PropTypes.string.isRequired,
       isPinned: PropTypes.bool.isRequired
     })
   ).isRequired,

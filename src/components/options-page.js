@@ -13,7 +13,7 @@ class OptionsPage extends React.Component {
     this.state = { webPages: [] };
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.updateWebPages();
   }
 
