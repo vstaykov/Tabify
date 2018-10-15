@@ -36,7 +36,7 @@ class CommandsExecutor {
   openSavedWebPages = () => {
     this.webPageStorageService.getWebPages().then(webPages => {
       webPages.forEach(webPage => {
-        this.tabsService.createTab(webPage.pageUrl, webPage.isPinned);
+        this.tabsService.createTab(webPage.url, webPage.isPinned);
       });
     });
   };
