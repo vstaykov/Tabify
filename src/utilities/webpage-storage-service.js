@@ -39,20 +39,17 @@ class WebPageStorageService {
     return setDataPromise;
   };
 
-  deleteWebPage = webPage => {
+  deleteWebPage = id => {
     const deleteWebPagePromise = new Promise(resolve => {
       this.getWebPages().then(webPages => {
-        const webPageIndex = webPages.findIndex(
-          wp =>
-            wp.pageUrl === webPage.pageUrl && wp.isPinned === webPage.isPinned
-        );
+        const updatedWebPages = webPages.filter(webPage => webPage.id !== id);
 
-        if (webPageIndex > -1) {
-          webPages.splice(webPageIndex, 1);
-          this.browser.setStorageData({ tabifyWebPages: webPages }, result => {
+        this.browser.setStorageData(
+          { tabifyWebPages: updatedWebPages },
+          result => {
             resolve(result);
-          });
-        }
+          }
+        );
       });
     });
 

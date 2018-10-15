@@ -34,7 +34,7 @@ const WebPageList = props => (
               />
               <span className="slider round" />
             </label>
-            <button onClick={() => props.deleteWebPage(webPage)}>
+            <button onClick={() => props.deleteWebPage(webPage.id)}>
               <FontAwesomeIcon icon={faTrash} size="xs" />
             </button>
           </div>
