@@ -23,12 +23,12 @@ class CommandsExecutor {
     }
   };
 
-  toggleQuiteMode = () => {
+  toggleQuiteMode = async () => {
     if (this.muted) {
-      this.tabsService.unmuteTabs();
+      await this.tabsService.unmuteTabs();
       this.muted = false;
     } else {
-      this.tabsService.muteTabs();
+      await this.tabsService.muteTabs();
       this.muted = true;
     }
   };

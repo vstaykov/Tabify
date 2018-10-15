@@ -2,7 +2,7 @@ var path = require('path');
 
 module.exports = {
   entry: {
-    backgroundscript: "./src/background-script.js",
+    backgroundscript: ["babel-polyfill", "./src/background-script.js"],
     popup: "./src/popup.js",
     options: "./src/options.js"
   },

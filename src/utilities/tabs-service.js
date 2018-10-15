@@ -10,30 +10,26 @@ class TabsService {
     this.browser.createTab(url, pinned);
   };
 
-  muteTabs = () => {
-    const query = { muted: false };
+  muteTabs = async () => {
+    const tabs = await this.browser.getTabs({ muted: false });
 
-    this.browser.getTabs(query).then(tabs => {
-      tabs.forEach(tab => {
-        this.browser.updateTab(tab.id, { muted: true });
-      });
+    tabs.forEach(tab => {
+      this.browser.updateTab(tab.id, { muted: true });
     });
   };
 
-  unmuteTabs = () => {
-    const query = { muted: true };
+  unmuteTabs = async () => {
+    const tabs = await this.browser.getTabs({ muted: true });
 
-    this.browser.getTabs(query).then(tabs => {
-      tabs.forEach(tab => {
-        const { mutedInfo } = tab;
+    tabs.forEach(tab => {
+      const { mutedInfo } = tab;
 
-        if (
-          mutedInfo.reason === "extension" &&
-          mutedInfo.extensionId === Tabify.ID
-        ) {
-          this.browser.updateTab(tab.id, { muted: false });
-        }
-      });
+      if (
+        mutedInfo.reason === "extension" &&
+        mutedInfo.extensionId === Tabify.ID
+      ) {
+        this.browser.updateTab(tab.id, { muted: false });
+      }
     });
   };
 }
