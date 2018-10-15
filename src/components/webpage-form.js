@@ -51,7 +51,7 @@ class WebpageForm extends React.Component {
 
   render() {
     return (
-      <form ref={this.formElement} onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <div>
           <label htmlFor="pageUrl">
             Page URL
