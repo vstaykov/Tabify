@@ -40,7 +40,8 @@
     "@fortawesome/react-fontawesome": "0.1.0-11",
     "prop-types": "^15.6.2",
     "react": "^16.4.2",
-    "react-dom": "^16.4.2"
+    "react-dom": "^16.4.2",
+    "uniqid": "^5.0.3"
   },
   "scripts": {
     "start": "npm run lint:watch",

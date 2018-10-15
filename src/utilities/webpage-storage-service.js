@@ -1,3 +1,4 @@
+import uniqid from "uniqid";
 import Browser from "./browser";
 
 class WebPageStorageService {
@@ -21,6 +22,7 @@ class WebPageStorageService {
 
   saveWebPage = (url, isPinned) => {
     const newPage = {
+      id: uniqid(),
       url,
       isPinned
     };
