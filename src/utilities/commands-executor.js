@@ -33,11 +33,11 @@ class CommandsExecutor {
     }
   };
 
-  openSavedWebPages = () => {
-    this.webPageStorageService.getWebPages().then(webPages => {
-      webPages.forEach(webPage => {
-        this.tabsService.createTab(webPage.url, webPage.isPinned);
-      });
+  openSavedWebPages = async () => {
+    const webPages = await this.webPageStorageService.getWebPages();
+
+    webPages.forEach(webPage => {
+      this.tabsService.createTab(webPage.url, webPage.isPinned);
     });
   };
 }
