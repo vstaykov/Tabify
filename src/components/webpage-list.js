@@ -17,7 +17,7 @@ const WebPageList = props => (
       }/&amp;alt=s&amp;sz=16`;
 
       return (
-        <div key={webPage.url}>
+        <div key={webPage.id}>
           <div>
             <img src={favIconUrl} title="" alt="" />
             <a href={webPage.url} target="_blank" rel="noopener noreferrer">
