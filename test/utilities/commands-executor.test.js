@@ -41,12 +41,12 @@ describe("commands-executor.js", () => {
   describe("executeCommand()", () => {
 
     describe("when given unknown command", () => {
-      it("do nothing and writes to the console the unknown command name", () => {
+      it("do nothing and writes to the console the unknown command name", async () => {
         const consoleLogSpy = jest.spyOn(global.console, "log").mockImplementation(() => { });
 
         const unknownCommand = "foo";
         const commandsExecutor = new CommandsExecutor();
-        commandsExecutor.executeCommand(unknownCommand);
+        await commandsExecutor.executeCommand(unknownCommand);
 
         expect(TabsService).toHaveBeenCalledTimes(1);
         expect(WebPageStorageService).toHaveBeenCalledTimes(1);
@@ -56,26 +56,26 @@ describe("commands-executor.js", () => {
     });
 
     describe(`when given ${toggleQuiteModeCommand} command`, () => {
-      it("mute tabs if not alaready muted", () => {
+      it("mute tabs if not alaready muted", async () => {
         const commandsExecutor = new CommandsExecutor();
-        commandsExecutor.executeCommand(toggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
 
         expect(muteTabsMock).toHaveBeenCalledTimes(1)
       });
 
-      it("unmute tabs if already muted", () => {
+      it("unmute tabs if already muted", async () => {
         const commandsExecutor = new CommandsExecutor();
-        commandsExecutor.executeCommand(toggleQuiteModeCommand);
-        commandsExecutor.executeCommand(toggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
 
         expect(muteTabsMock).toHaveBeenCalledTimes(1);
         expect(unmuteTabsMock).toHaveBeenCalledTimes(1);
       });
 
-      it(`unmute tabs if already muted by ${globalToggleQuiteModeCommand} command`, () => {
+      it(`unmute tabs if already muted by ${globalToggleQuiteModeCommand} command`, async () => {
         const commandsExecutor = new CommandsExecutor();
-        commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
-        commandsExecutor.executeCommand(toggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
 
         expect(muteTabsMock).toHaveBeenCalledTimes(1);
         expect(unmuteTabsMock).toHaveBeenCalledTimes(1);
@@ -83,26 +83,26 @@ describe("commands-executor.js", () => {
     });
 
     describe(`when given ${globalToggleQuiteModeCommand} command`, () => {
-      it("mute tabs if not alaready muted", () => {
+      it("mute tabs if not alaready muted", async () => {
         const commandsExecutor = new CommandsExecutor();
-        commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
 
         expect(muteTabsMock).toHaveBeenCalledTimes(1)
       });
 
-      it("unmute tabs if already muted", () => {
+      it("unmute tabs if already muted", async () => {
         const commandsExecutor = new CommandsExecutor();
-        commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
-        commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
 
         expect(muteTabsMock).toHaveBeenCalledTimes(1);
         expect(unmuteTabsMock).toHaveBeenCalledTimes(1);
       });
 
-      it(`unmute tabs if already muted by ${toggleQuiteModeCommand} command`, () => {
+      it(`unmute tabs if already muted by ${toggleQuiteModeCommand} command`, async () => {
         const commandsExecutor = new CommandsExecutor();
-        commandsExecutor.executeCommand(toggleQuiteModeCommand);
-        commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
 
         expect(muteTabsMock).toHaveBeenCalledTimes(1);
         expect(unmuteTabsMock).toHaveBeenCalledTimes(1);
@@ -116,10 +116,10 @@ describe("commands-executor.js", () => {
           return {
             getWebPages: () => {
               return Promise.resolve([{
-                pageUrl: "foo",
+                url: "foo",
                 isPinned: true
               }, {
-                pageUrl: "bar",
+                url: "bar",
                 isPinned: false
               }]);
             }

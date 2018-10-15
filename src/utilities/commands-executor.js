@@ -8,14 +8,14 @@ class CommandsExecutor {
     this.muted = false;
   }
 
-  executeCommand = command => {
+  executeCommand = async command => {
     switch (command) {
       case "toggle-quite-mode":
       case "global-toggle-quite-mode":
-        this.toggleQuiteMode();
+        await this.toggleQuiteMode();
         break;
       case "open-saved-web-pages":
-        this.openSavedWebPages();
+        await this.openSavedWebPages();
         break;
       default:
         console.log(`Command ${command} detected but not handled.`);
