@@ -1,5 +1,5 @@
 import React from "react";
-import Shortcut from "../../src/components/shortcut";
+import Shortcut from "../shortcut";
 import renderer from "react-test-renderer";
 
 describe("<Shortcut />", () => {
