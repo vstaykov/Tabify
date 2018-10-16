@@ -4,7 +4,7 @@ module.exports = {
   entry: {
     backgroundscript: ["babel-polyfill", "./src/background-script.js"],
     popup: "./src/popup.js",
-    options: "./src/options.js"
+    options: ["babel-polyfill", "./src/options.js"]
   },
   output: {
     filename: '[name].bundle.js',

@@ -24,10 +24,12 @@ class Browser {
     return gatTabsPromise;
   };
 
-  getStorageData = (key, resolveCallback) => {
-    this.chrome.storage.sync.get(key, result => {
-      resolveCallback(result);
+  getStorageData = key => {
+    const getDataPromise = new Promise(resolve => {
+      this.chrome.storage.sync.get(key, result => resolve(result));
     });
+
+    return getDataPromise;
   };
 
   setStorageData = (data, resolveCallback) => {

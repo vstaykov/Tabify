@@ -6,18 +6,11 @@ class WebPageStorageService {
     this.browser = new Browser();
   }
 
-  getWebPages = () => {
-    const getWebPagesPromise = new Promise(resolve => {
-      this.browser.getStorageData("tabifyWebPages", result => {
-        const webPages =
-          result.tabifyWebPages !== null && result.tabifyWebPages !== undefined
-            ? result.tabifyWebPages
-            : [];
-        resolve(webPages);
-      });
-    });
+  getWebPages = async () => {
+    const data = await this.browser.getStorageData("tabifyWebPages");
+    const webPages = data.tabifyWebPages ? data.tabifyWebPages : [];
 
-    return getWebPagesPromise;
+    return webPages;
   };
 
   saveWebPage = (url, isPinned) => {
