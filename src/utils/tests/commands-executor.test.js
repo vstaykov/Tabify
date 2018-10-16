@@ -1,9 +1,9 @@
-import TabsService from "../../src/utilities/tabs-service";
-import WebPageStorageService from "../../src/utilities/webpage-storage-service";
-import CommandsExecutor from "../../src/utilities/commands-executor";
+import TabsService from "../tabs-service";
+import WebPageStorageService from "../webpage-storage-service";
+import CommandsExecutor from "../commands-executor";
 
-jest.mock("../../src/utilities/tabs-service");
-jest.mock("../../src/utilities/webpage-storage-service");
+jest.mock("../tabs-service");
+jest.mock("../webpage-storage-service");
 
 const toggleQuiteModeCommand = "toggle-quite-mode";
 const globalToggleQuiteModeCommand = "global-toggle-quite-mode";

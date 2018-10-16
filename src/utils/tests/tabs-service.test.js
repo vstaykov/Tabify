@@ -1,8 +1,8 @@
-import Tabify from "../../src/tabify";
-import Browser from "../../src/utilities/browser";
-import TabsService from "../../src/utilities/tabs-service";
+import Tabify from "../../tabify";
+import Browser from "../browser";
+import TabsService from "../tabs-service";
 
-jest.mock("../../src/utilities/browser");
+jest.mock("../browser");
 
 describe("tabs-service.js", () => {
   describe("createTab()", () => {
