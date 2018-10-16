@@ -13,40 +13,24 @@ class WebPageStorageService {
     return webPages;
   };
 
-  saveWebPage = (url, isPinned) => {
+  saveWebPage = async (url, isPinned) => {
     const newPage = {
       id: uniqid(),
       url,
       isPinned
     };
 
-    const setDataPromise = new Promise(resolve => {
-      this.getWebPages().then(webPages => {
-        webPages.push(newPage);
-        this.browser.setStorageData({ tabifyWebPages: webPages }, result => {
-          resolve(result);
-        });
-      });
-    });
+    const webPages = await this.getWebPages();
+    webPages.push(newPage);
 
-    return setDataPromise;
+    await this.browser.setStorageData({ tabifyWebPages: webPages });
   };
 
-  deleteWebPage = id => {
-    const deleteWebPagePromise = new Promise(resolve => {
-      this.getWebPages().then(webPages => {
-        const updatedWebPages = webPages.filter(webPage => webPage.id !== id);
+  deleteWebPage = async id => {
+    const webPages = await this.getWebPages();
+    const updatedWebPages = webPages.filter(webPage => webPage.id !== id);
 
-        this.browser.setStorageData(
-          { tabifyWebPages: updatedWebPages },
-          result => {
-            resolve(result);
-          }
-        );
-      });
-    });
-
-    return deleteWebPagePromise;
+    await this.browser.setStorageData({ tabifyWebPages: updatedWebPages });
   };
 }
 

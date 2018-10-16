@@ -32,10 +32,12 @@ class Browser {
     return getDataPromise;
   };
 
-  setStorageData = (data, resolveCallback) => {
-    chrome.storage.sync.set(data, result => {
-      resolveCallback(result);
+  setStorageData = data => {
+    const setDataPromise = new Promise(resolve => {
+      chrome.storage.sync.set(data, result => resolve(result));
     });
+
+    return setDataPromise;
   };
 
   addCommandsListener = commandCallback => {
