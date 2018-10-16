@@ -1,7 +1,7 @@
 import React from "react";
 import WebPageForm from "./webpage-form";
 import WebPageList from "./webpage-list";
-import WebPageStorageService from "./../utilities/webpage-storage-service";
+import WebPageStorageService from "./../utils/webpage-storage-service";
 
 const maxWebPagesCount = 10;
 

@@ -1,4 +1,4 @@
-import CommandsExecutor from "./utilities/commands-executor";
+import CommandsExecutor from "./utils/commands-executor";
 
 const commandsExecutor = new CommandsExecutor();
 
