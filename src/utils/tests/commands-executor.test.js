@@ -1,8 +1,7 @@
 import tabsService from "../tabs-service";
-import WebPageStorageService from "../webpage-storage-service";
+import webPageStorageService from "../webpage-storage-service";
 import CommandsExecutor from "../commands-executor";
 
-jest.mock("../webpage-storage-service");
 jest.mock("../browser", () => ({
   __esModule: true,
   default: {}
@@ -15,21 +14,19 @@ jest.mock("../tabs-service", () => ({
     createTab: jest.fn()
   }
 }));
+jest.mock("../webpage-storage-service", () => ({
+  __esModule: true,
+  default: {
+    getWebPages: jest.fn()
+  }
+}));
 
 const toggleQuiteModeCommand = "toggle-quite-mode";
 const globalToggleQuiteModeCommand = "global-toggle-quite-mode";
 const openSavedWebPagesCommand = "open-saved-web-pages";
 
-beforeAll(() => {
-  WebPageStorageService.mockImplementation(() => {
-    return {
-      getWebPages: jest.fn()
-    };
-  });
-});
-
 beforeEach(() => {
-  WebPageStorageService.mockClear();
+  webPageStorageService.getWebPages.mockClear();
   tabsService.muteTabs.mockClear();
   tabsService.unmuteTabs.mockClear();
   tabsService.createTab.mockClear();
@@ -47,7 +44,6 @@ describe("commands-executor.js", () => {
         const commandsExecutor = new CommandsExecutor();
         await commandsExecutor.executeCommand(unknownCommand);
 
-        expect(WebPageStorageService).toHaveBeenCalledTimes(1);
         expect(consoleLogSpy).toBeCalled();
         expect(consoleLogSpy.mock.calls[0][0]).toContain(unknownCommand);
       });
@@ -109,21 +105,18 @@ describe("commands-executor.js", () => {
 
     describe(`when given ${openSavedWebPagesCommand} command`, () => {
       it("get and open the saved web pages", async () => {
-        WebPageStorageService.mockImplementation(() => {
-          return {
-            getWebPages: () =>
-              Promise.resolve([
-                {
-                  url: "foo",
-                  isPinned: true
-                },
-                {
-                  url: "bar",
-                  isPinned: false
-                }
-              ])
-          };
-        });
+        webPageStorageService.getWebPages.mockImplementation(() =>
+          Promise.resolve([
+            {
+              url: "foo",
+              isPinned: true
+            },
+            {
+              url: "bar",
+              isPinned: false
+            }
+          ])
+        );
 
         const commandsExecutor = new CommandsExecutor();
         await commandsExecutor.executeCommand(openSavedWebPagesCommand);

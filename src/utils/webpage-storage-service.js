@@ -30,4 +30,5 @@ class WebPageStorageService {
   };
 }
 
-export default WebPageStorageService;
+const webPageStorageService = new WebPageStorageService();
+export default webPageStorageService;

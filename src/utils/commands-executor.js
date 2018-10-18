@@ -1,9 +1,8 @@
 import tabsService from "./tabs-service";
-import WebPageStorageService from "./webpage-storage-service";
+import webPageStorageService from "./webpage-storage-service";
 
 class CommandsExecutor {
   constructor() {
-    this.webPageStorageService = new WebPageStorageService();
     this.muted = false;
   }
 
@@ -33,7 +32,7 @@ class CommandsExecutor {
   };
 
   openSavedWebPages = async () => {
-    const webPages = await this.webPageStorageService.getWebPages();
+    const webPages = await webPageStorageService.getWebPages();
 
     webPages.forEach(webPage => {
       tabsService.createTab(webPage.url, webPage.isPinned);
