@@ -1,9 +1,8 @@
-import TabsService from "./tabs-service";
+import tabsService from "./tabs-service";
 import WebPageStorageService from "./webpage-storage-service";
 
 class CommandsExecutor {
   constructor() {
-    this.tabsService = new TabsService();
     this.webPageStorageService = new WebPageStorageService();
     this.muted = false;
   }
@@ -25,10 +24,10 @@ class CommandsExecutor {
 
   toggleQuiteMode = async () => {
     if (this.muted) {
-      await this.tabsService.unmuteTabs();
+      await tabsService.unmuteTabs();
       this.muted = false;
     } else {
-      await this.tabsService.muteTabs();
+      await tabsService.muteTabs();
       this.muted = true;
     }
   };
@@ -37,7 +36,7 @@ class CommandsExecutor {
     const webPages = await this.webPageStorageService.getWebPages();
 
     webPages.forEach(webPage => {
-      this.tabsService.createTab(webPage.url, webPage.isPinned);
+      tabsService.createTab(webPage.url, webPage.isPinned);
     });
   };
 }

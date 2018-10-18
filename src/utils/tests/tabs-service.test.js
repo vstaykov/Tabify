@@ -1,6 +1,6 @@
 import Tabify from "../../tabify";
 import browser from "../browser";
-import TabsService from "../tabs-service";
+import tabsService from "../tabs-service";
 
 jest.mock("../browser", () => ({
   __esModule: true,
@@ -20,8 +20,6 @@ beforeEach(() => {
 describe("tabs-service.js", () => {
   describe("createTab()", () => {
     it("create browser tab with correct parameters", () => {
-      const tabsService = new TabsService();
-
       tabsService.createTab("foo", true);
       tabsService.createTab("bar", false);
 
@@ -34,8 +32,6 @@ describe("tabs-service.js", () => {
   describe("muteTabs()", () => {
     it("get only unmuted browser tabs", async () => {
       browser.getTabs.mockImplementationOnce(() => Promise.resolve([]));
-
-      const tabsService = new TabsService();
 
       await tabsService.muteTabs();
 
@@ -55,8 +51,6 @@ describe("tabs-service.js", () => {
         ])
       );
 
-      const tabsService = new TabsService();
-
       await tabsService.muteTabs();
 
       expect(browser.updateTab).toHaveBeenCalledTimes(2);
@@ -68,8 +62,6 @@ describe("tabs-service.js", () => {
   describe("unmuteTabs()", () => {
     it("get only muted browser tabs", async () => {
       browser.getTabs.mockImplementationOnce(() => Promise.resolve([]));
-
-      const tabsService = new TabsService();
 
       await tabsService.unmuteTabs();
 
@@ -97,8 +89,6 @@ describe("tabs-service.js", () => {
         ])
       );
 
-      const tabsService = new TabsService();
-
       await tabsService.unmuteTabs();
 
       expect(browser.updateTab).toHaveBeenCalledTimes(0);
@@ -124,8 +114,6 @@ describe("tabs-service.js", () => {
         ])
       );
 
-      const tabsService = new TabsService();
-
       await tabsService.unmuteTabs();
 
       expect(browser.updateTab).toHaveBeenCalledTimes(0);
@@ -150,8 +138,6 @@ describe("tabs-service.js", () => {
           }
         ])
       );
-
-      const tabsService = new TabsService();
 
       await tabsService.unmuteTabs();
 

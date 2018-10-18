@@ -30,4 +30,5 @@ class TabsService {
   };
 }
 
-export default TabsService;
+const tabsService = new TabsService();
+export default tabsService;
