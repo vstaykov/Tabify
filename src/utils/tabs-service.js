@@ -1,25 +1,21 @@
 import Tabify from "./../tabify";
-import Browser from "./browser";
+import browser from "./browser";
 
 class TabsService {
-  constructor() {
-    this.browser = new Browser();
-  }
-
   createTab = (url, pinned) => {
-    this.browser.createTab(url, pinned);
+    browser.createTab(url, pinned);
   };
 
   muteTabs = async () => {
-    const tabs = await this.browser.getTabs({ muted: false });
+    const tabs = await browser.getTabs({ muted: false });
 
     tabs.forEach(tab => {
-      this.browser.updateTab(tab.id, { muted: true });
+      browser.updateTab(tab.id, { muted: true });
     });
   };
 
   unmuteTabs = async () => {
-    const tabs = await this.browser.getTabs({ muted: true });
+    const tabs = await browser.getTabs({ muted: true });
 
     tabs.forEach(tab => {
       const { mutedInfo } = tab;
@@ -28,7 +24,7 @@ class TabsService {
         mutedInfo.reason === "extension" &&
         mutedInfo.extensionId === Tabify.ID
       ) {
-        this.browser.updateTab(tab.id, { muted: false });
+        browser.updateTab(tab.id, { muted: false });
       }
     });
   };

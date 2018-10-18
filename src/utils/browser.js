@@ -45,4 +45,5 @@ class Browser {
   };
 }
 
-export default Browser;
+const browser = new Browser();
+export default browser;

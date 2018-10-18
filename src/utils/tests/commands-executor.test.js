@@ -2,6 +2,10 @@ import TabsService from "../tabs-service";
 import WebPageStorageService from "../webpage-storage-service";
 import CommandsExecutor from "../commands-executor";
 
+jest.mock("../browser", () => ({
+  __esModule: true,
+  default: {}
+}));
 jest.mock("../tabs-service");
 jest.mock("../webpage-storage-service");
 
@@ -19,13 +23,13 @@ beforeAll(() => {
       muteTabs: muteTabsMock,
       unmuteTabs: unmuteTabsMock,
       createTab: createTabMock
-    }
+    };
   });
 
   WebPageStorageService.mockImplementation(() => {
     return {
       getWebPages: jest.fn()
-    }
+    };
   });
 });
 
@@ -39,10 +43,11 @@ beforeEach(() => {
 
 describe("commands-executor.js", () => {
   describe("executeCommand()", () => {
-
     describe("when given unknown command", () => {
       it("do nothing and writes to the console the unknown command name", async () => {
-        const consoleLogSpy = jest.spyOn(global.console, "log").mockImplementation(() => { });
+        const consoleLogSpy = jest
+          .spyOn(global.console, "log")
+          .mockImplementation(() => {});
 
         const unknownCommand = "foo";
         const commandsExecutor = new CommandsExecutor();
@@ -60,7 +65,7 @@ describe("commands-executor.js", () => {
         const commandsExecutor = new CommandsExecutor();
         await commandsExecutor.executeCommand(toggleQuiteModeCommand);
 
-        expect(muteTabsMock).toHaveBeenCalledTimes(1)
+        expect(muteTabsMock).toHaveBeenCalledTimes(1);
       });
 
       it("unmute tabs if already muted", async () => {
@@ -87,7 +92,7 @@ describe("commands-executor.js", () => {
         const commandsExecutor = new CommandsExecutor();
         await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
 
-        expect(muteTabsMock).toHaveBeenCalledTimes(1)
+        expect(muteTabsMock).toHaveBeenCalledTimes(1);
       });
 
       it("unmute tabs if already muted", async () => {
@@ -111,19 +116,20 @@ describe("commands-executor.js", () => {
 
     describe(`when given ${openSavedWebPagesCommand} command`, () => {
       it("get and open the saved web pages", async () => {
-
         WebPageStorageService.mockImplementation(() => {
           return {
-            getWebPages: () => {
-              return Promise.resolve([{
-                url: "foo",
-                isPinned: true
-              }, {
-                url: "bar",
-                isPinned: false
-              }]);
-            }
-          }
+            getWebPages: () =>
+              Promise.resolve([
+                {
+                  url: "foo",
+                  isPinned: true
+                },
+                {
+                  url: "bar",
+                  isPinned: false
+                }
+              ])
+          };
         });
 
         const commandsExecutor = new CommandsExecutor();

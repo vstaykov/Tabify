@@ -1,13 +1,9 @@
 import uniqid from "uniqid";
-import Browser from "./browser";
+import browser from "./browser";
 
 class WebPageStorageService {
-  constructor() {
-    this.browser = new Browser();
-  }
-
   getWebPages = async () => {
-    const data = await this.browser.getStorageData("tabifyWebPages");
+    const data = await browser.getStorageData("tabifyWebPages");
     const webPages = data.tabifyWebPages ? data.tabifyWebPages : [];
 
     return webPages;
@@ -23,14 +19,14 @@ class WebPageStorageService {
     const webPages = await this.getWebPages();
     webPages.push(newPage);
 
-    await this.browser.setStorageData({ tabifyWebPages: webPages });
+    await browser.setStorageData({ tabifyWebPages: webPages });
   };
 
   deleteWebPage = async id => {
     const webPages = await this.getWebPages();
     const updatedWebPages = webPages.filter(webPage => webPage.id !== id);
 
-    await this.browser.setStorageData({ tabifyWebPages: updatedWebPages });
+    await browser.setStorageData({ tabifyWebPages: updatedWebPages });
   };
 }
 
