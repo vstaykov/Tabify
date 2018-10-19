@@ -10,7 +10,7 @@ const OptionsPage = ({
   webpagesFormEnabled,
   submitWebpagesForm
 }) => (
-  <div>
+  <React.Fragment>
     <WebpageFormContainer
       submit={submitWebpagesForm}
       enabled={webpagesFormEnabled}
@@ -20,7 +20,7 @@ const OptionsPage = ({
       maxWebPagesCount={webpagesMaxCount}
       deleteWebPage={deleteWebpage}
     />
-  </div>
+  </React.Fragment>
 );
 
 OptionsPage.propTypes = {
