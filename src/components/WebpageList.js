@@ -2,20 +2,16 @@ import React from "react";
 import PropTypes from "prop-types";
 import WebPage from "./Webpage";
 
-const WebPageList = props => (
+const WebPageList = ({ webPages, maxWebPagesCount, deleteWebPage }) => (
   <div>
     <div>
       <span>Saved Web Pages</span>
       <span>
-        {props.webPages.length}/{props.maxWebPagesCount}
+        {webPages.length}/{maxWebPagesCount}
       </span>
     </div>
-    {props.webPages.map(webPage => (
-      <WebPage
-        key={webPage.id}
-        {...webPage}
-        handleDelete={props.deleteWebPage}
-      />
+    {webPages.map(webPage => (
+      <WebPage key={webPage.id} {...webPage} handleDelete={deleteWebPage} />
     ))}
   </div>
 );
