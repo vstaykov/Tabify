@@ -2,13 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import Shortcut from "../Shortcut/Shortcut";
 
-const ShortcutsSection = props => (
+const ShortcutsSection = ({ shortcuts }) => (
   <div className="shortcuts-section">
     <div className="shortcuts-section-title">Shortcuts Cheatsheet</div>
     <hr />
-    {props.shortcuts.map(shortcut => (
-      <Shortcut {...shortcut} key={shortcut.title} />
-    ))}
+    {shortcuts.map(shortcut => <Shortcut {...shortcut} key={shortcut.title} />)}
   </div>
 );
 
