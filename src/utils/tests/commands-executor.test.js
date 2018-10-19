@@ -1,5 +1,5 @@
 import tabsService from "../tabs-service";
-import webPageStorageService from "../webpage-storage-service";
+import webpageStorageService from "../webpage-storage-service";
 import CommandsExecutor from "../commands-executor";
 
 jest.mock("../browser", () => ({
@@ -17,7 +17,7 @@ jest.mock("../tabs-service", () => ({
 jest.mock("../webpage-storage-service", () => ({
   __esModule: true,
   default: {
-    getWebPages: jest.fn()
+    getWebpages: jest.fn()
   }
 }));
 
@@ -26,7 +26,7 @@ const globalToggleQuiteModeCommand = "global-toggle-quite-mode";
 const openSavedWebPagesCommand = "open-saved-web-pages";
 
 beforeEach(() => {
-  webPageStorageService.getWebPages.mockClear();
+  webpageStorageService.getWebpages.mockClear();
   tabsService.muteTabs.mockClear();
   tabsService.unmuteTabs.mockClear();
   tabsService.createTab.mockClear();
@@ -105,7 +105,7 @@ describe("commands-executor.js", () => {
 
     describe(`when given ${openSavedWebPagesCommand} command`, () => {
       it("get and open the saved web pages", async () => {
-        webPageStorageService.getWebPages.mockImplementation(() =>
+        webpageStorageService.getWebpages.mockImplementation(() =>
           Promise.resolve([
             {
               url: "foo",
