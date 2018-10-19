@@ -8,7 +8,6 @@ const INVALIDURLMESSAGE =
 class WebpageForm extends React.Component {
   constructor(props) {
     super(props);
-    this.props = props;
 
     this.state = {
       pageUrl: "",
