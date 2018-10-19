@@ -1,5 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import OptionsPage from "./components/OptionsPage";
+import OptionsPageContainer from "./components/OptionsPage/OptionsPageContainer";
 
-ReactDOM.render(<OptionsPage />, document.getElementById("root"));
+ReactDOM.render(<OptionsPageContainer />, document.getElementById("root"));
