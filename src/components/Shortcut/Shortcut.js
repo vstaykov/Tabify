@@ -1,10 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-const Shortcut = props => (
+const Shortcut = ({ title, keys }) => (
   <div>
-    <div className="shortcut-title d-inline">{props.title}:</div>
-    {props.keys.map((key, i) => {
+    <div className="shortcut-title d-inline">{title}:</div>
+    {keys.map((key, i) => {
       const keyElement = (
         <span className="shortcut-key text-monospace">{key}</span>
       );
@@ -15,7 +15,7 @@ const Shortcut = props => (
         </span>
       );
 
-      if (i === props.keys.length - 1) {
+      if (i === keys.length - 1) {
         resultElement = keyElement;
       }
 
