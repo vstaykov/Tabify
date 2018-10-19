@@ -1,11 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
+import WebPageForm from "./WebpageForm";
 
 const URLREGEX = /^(ftp|http|https):\/\/[^ "]+$/;
 const INVALIDURLMESSAGE =
   "Please provide a valid URL in the format ftp|http|https://<url with no spaces or quotes>";
 
-class WebpageForm extends React.Component {
+class WebpageFormContainer extends React.Component {
   constructor(props) {
     super(props);
 
@@ -25,7 +26,7 @@ class WebpageForm extends React.Component {
     this.setState({ pinned: event.target.checked });
   };
 
-  handleSubmit = event => {
+  handleSubmitForm = event => {
     event.preventDefault();
     event.stopPropagation();
 
@@ -50,43 +51,24 @@ class WebpageForm extends React.Component {
 
   render() {
     const { pageUrl, pinned, urlDataIsValid } = this.state;
+    const { enabled } = this.props;
+    const invalidDataMessage = urlDataIsValid ? "" : INVALIDURLMESSAGE;
 
-    return (
-      <form onSubmit={this.handleSubmit}>
-        <div>
-          <label htmlFor="pageUrl">
-            Page URL
-            <input
-              id="pageUrl"
-              type="text"
-              value={pageUrl}
-              onChange={this.handlePageUrlChange}
-            />
-          </label>
-          <label htmlFor="pinned" className="switch">
-            Pinned
-            <input
-              id="pinned"
-              type="checkbox"
-              checked={pinned}
-              onChange={this.handlePinnedChange}
-            />
-            <span className="slider round" />
-          </label>
-
-          <input type="submit" value="Add" disabled={!this.props.enabled} />
-        </div>
-        {urlDataIsValid ? null : (
-          <div className="invalid-form-data">{INVALIDURLMESSAGE}</div>
-        )}
-      </form>
-    );
+    return React.createElement(WebPageForm, {
+      enabled,
+      handleSubmitForm: this.handleSubmitForm,
+      pageUrl,
+      handlePageUrlChange: this.handlePageUrlChange,
+      pinned,
+      handlePinnedChange: this.handlePinnedChange,
+      invalidDataMessage
+    });
   }
 }
 
-WebpageForm.propTypes = {
+WebpageFormContainer.propTypes = {
   submit: PropTypes.func.isRequired,
   enabled: PropTypes.bool.isRequired
 };
 
-export default WebpageForm;
+export default WebpageFormContainer;

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import WebpageForm from "../WebpageForm";
+import WebpageFormContainer from "../WebpageForm/WebpageFormContainer";
 import WebpageList from "../WebpageList";
 
 const OptionsPage = ({
@@ -11,7 +11,10 @@ const OptionsPage = ({
   submitWebpagesForm
 }) => (
   <div>
-    <WebpageForm submit={submitWebpagesForm} enabled={webpagesFormEnabled} />
+    <WebpageFormContainer
+      submit={submitWebpagesForm}
+      enabled={webpagesFormEnabled}
+    />
     <WebpageList
       webPages={webpages}
       maxWebPagesCount={webpagesMaxCount}
