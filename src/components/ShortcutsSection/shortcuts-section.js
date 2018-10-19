@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Shortcut from "../Shortcut/shortcut";
+import Shortcut from "../Shortcut/Shortcut";
 
 const ShortcutsSection = props => (
   <div className="shortcuts-section">
