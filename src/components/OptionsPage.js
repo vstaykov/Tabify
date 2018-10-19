@@ -1,5 +1,5 @@
 import React from "react";
-import WebPageForm from "./webpage-form";
+import WebPageForm from "./WebpageForm";
 import WebPageList from "./webpage-list";
 import webPageStorageService from "./../utils/webpage-storage-service";
 
