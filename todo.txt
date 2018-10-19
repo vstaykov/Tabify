@@ -4,10 +4,7 @@
 4. upload extension
 
 // manifest generation during build //commands SST
-// presentation components & container components
-// single instance - import/export
 // access env vars in JS/Node
 // react components + tests at the same place
 // react app boilerplate - create react app (FB) - best practices reference
 // Enzyme + snapshots library
-// Code splitting
