@@ -1,5 +1,5 @@
 import React from "react";
-import ShortcutsSection from "../shortcuts-section";
+import ShortcutsSection from "../ShortcutsSection";
 import renderer from "react-test-renderer";
 
 describe("<ShortcutsSection />", () => {
