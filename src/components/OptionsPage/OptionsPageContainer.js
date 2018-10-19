@@ -1,6 +1,6 @@
 import React from "react";
 import OptionsPage from "./OptionsPage";
-import webPageStorageService from "../../utils/webpage-storage-service";
+import webpageStorageService from "../../utils/webpage-storage-service";
 
 const webpagesMaxCount = 10;
 
@@ -16,13 +16,13 @@ class OptionsPageContainer extends React.Component {
   }
 
   submitWebpagesForm = async (url, pinned) => {
-    await webPageStorageService.saveWebPage(url, pinned);
+    await webpageStorageService.saveWebpage(url, pinned);
 
     this.updateWebpages();
   };
 
   updateWebpages = async () => {
-    const pages = await webPageStorageService.getWebPages();
+    const pages = await webpageStorageService.getWebpages();
 
     if (pages) {
       this.setState({ webpages: pages });
@@ -30,7 +30,7 @@ class OptionsPageContainer extends React.Component {
   };
 
   deleteWebPage = async webpage => {
-    await webPageStorageService.deleteWebPage(webpage);
+    await webpageStorageService.deleteWebpage(webpage);
 
     this.updateWebpages();
   };

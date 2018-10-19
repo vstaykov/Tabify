@@ -1,34 +1,34 @@
 import uniqid from "uniqid";
 import browser from "./browser";
 
-class WebPageStorageService {
-  getWebPages = async () => {
-    const data = await browser.getStorageData("tabifyWebPages");
-    const webPages = data.tabifyWebPages ? data.tabifyWebPages : [];
+class WebpageStorageService {
+  getWebpages = async () => {
+    const data = await browser.getStorageData("tabifyWebpages");
+    const webPages = data.tabifyWebpages ? data.tabifyWebpages : [];
 
     return webPages;
   };
 
-  saveWebPage = async (url, isPinned) => {
+  saveWebpage = async (url, isPinned) => {
     const newPage = {
       id: uniqid(),
       url,
       isPinned
     };
 
-    const webPages = await this.getWebPages();
-    webPages.push(newPage);
+    const webpages = await this.getWebpages();
+    webpages.push(newPage);
 
-    await browser.setStorageData({ tabifyWebPages: webPages });
+    await browser.setStorageData({ tabifyWebpages: webpages });
   };
 
-  deleteWebPage = async id => {
-    const webPages = await this.getWebPages();
-    const updatedWebPages = webPages.filter(webPage => webPage.id !== id);
+  deleteWebpage = async id => {
+    const webpages = await this.getWebpages();
+    const updatedWebpages = webpages.filter(webpage => webpage.id !== id);
 
-    await browser.setStorageData({ tabifyWebPages: updatedWebPages });
+    await browser.setStorageData({ tabifyWebpages: updatedWebpages });
   };
 }
 
-const webPageStorageService = new WebPageStorageService();
-export default webPageStorageService;
+const webpageStorageService = new WebpageStorageService();
+export default webpageStorageService;
