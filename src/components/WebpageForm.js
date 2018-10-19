@@ -49,6 +49,8 @@ class WebpageForm extends React.Component {
   };
 
   render() {
+    const { pageUrl, pinned, urlDataIsValid } = this.state;
+
     return (
       <form onSubmit={this.handleSubmit}>
         <div>
@@ -57,7 +59,7 @@ class WebpageForm extends React.Component {
             <input
               id="pageUrl"
               type="text"
-              value={this.state.pageUrl}
+              value={pageUrl}
               onChange={this.handlePageUrlChange}
             />
           </label>
@@ -66,7 +68,7 @@ class WebpageForm extends React.Component {
             <input
               id="pinned"
               type="checkbox"
-              checked={this.state.pinned}
+              checked={pinned}
               onChange={this.handlePinnedChange}
             />
             <span className="slider round" />
@@ -74,7 +76,7 @@ class WebpageForm extends React.Component {
 
           <input type="submit" value="Add" disabled={!this.props.enabled} />
         </div>
-        {this.state.urlDataIsValid ? null : (
+        {urlDataIsValid ? null : (
           <div className="invalid-form-data">{INVALIDURLMESSAGE}</div>
         )}
       </form>
