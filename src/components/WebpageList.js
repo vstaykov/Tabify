@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import WebPage from "./Webpage";
 
-const WebPageList = ({ webPages, maxWebPagesCount, deleteWebPage }) => (
+const WebpageList = ({ webPages, maxWebPagesCount, deleteWebPage }) => (
   <div>
     <div>
       <span>Saved Web Pages</span>
@@ -16,7 +16,7 @@ const WebPageList = ({ webPages, maxWebPagesCount, deleteWebPage }) => (
   </div>
 );
 
-WebPageList.propTypes = {
+WebpageList.propTypes = {
   webPages: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,
@@ -28,4 +28,4 @@ WebPageList.propTypes = {
   deleteWebPage: PropTypes.func.isRequired
 };
 
-export default WebPageList;
+export default WebpageList;
