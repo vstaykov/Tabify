@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import WebPage from "./webpage";
+import WebPage from "./Webpage";
 
 const WebPageList = props => (
   <div>
