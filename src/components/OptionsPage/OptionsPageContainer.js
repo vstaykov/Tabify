@@ -36,11 +36,13 @@ class OptionsPageContainer extends React.Component {
   };
 
   render() {
+    const { webpages } = this.state;
+
     return React.createElement(OptionsPage, {
-      webpages: this.state.webpages,
+      webpages,
       webpagesMaxCount,
       deleteWebpage: this.deleteWebPage,
-      webpagesFormEnabled: this.state.webpages.length < webpagesMaxCount,
+      webpagesFormEnabled: webpages.length < webpagesMaxCount,
       submitWebpagesForm: this.submitWebpagesForm
     });
   }
