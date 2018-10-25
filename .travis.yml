@@ -4,6 +4,6 @@ node_js:
 install:
   - yarn
 script:
-  - yarn run build:prod
+  - yarn run build:production
 notifications:
   email: false

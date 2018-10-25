@@ -1,4 +1,4 @@
-var path = require('path');
+const paths = require("./../paths");
 
 module.exports = {
   entry: {
@@ -7,8 +7,8 @@ module.exports = {
     options: ["babel-polyfill", "./src/options.js"]
   },
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, 'dist')
+    filename: "[name].bundle.js",
+    path: paths.distFolder
   },
   module: {
     rules: [{

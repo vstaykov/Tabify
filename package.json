@@ -26,6 +26,7 @@
     "eslint-plugin-react": "^7.11.0",
     "eslint-watch": "^4.0.2",
     "jest": "^23.5.0",
+    "minimist": "^1.2.0",
     "prettier": "1.12.1",
     "react-test-renderer": "^16.4.2",
     "uglifyjs-webpack-plugin": "^1.2.5",
@@ -46,8 +47,8 @@
   "scripts": {
     "start": "npm run lint:watch",
     "test": "jest --verbose",
-    "build:prod": "webpack --config webpack.config.prod.js && npm test",
-    "build:dev": "webpack --config webpack.config.dev.js",
+    "build:production": "node ./scripts/build.js --mode production && npm test",
+    "build:dev": "node ./scripts/build.js --mode dev",
     "lint": "esw src",
     "lint:watch": "npm run lint -- --watch",
     "prettier": "prettier src/**/*.js --write"
