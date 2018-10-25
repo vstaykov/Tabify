@@ -1,3 +1,4 @@
+import commandsData from "../data/commands-data";
 import tabsService from "./tabs-service";
 import webpageStorageService from "./webpage-storage-service";
 
@@ -8,11 +9,11 @@ class CommandsExecutor {
 
   executeCommand = async command => {
     switch (command) {
-      case "toggle-quite-mode":
-      case "global-toggle-quite-mode":
+      case commandsData.toggleQuietMode.id:
+      case commandsData.globalToggleQuietMode.id:
         await this.toggleQuiteMode();
         break;
-      case "open-saved-web-pages":
+      case commandsData.openSavedWebPages.id:
         await this.openSavedWebPages();
         break;
       default:

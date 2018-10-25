@@ -1,6 +1,7 @@
 import tabsService from "../tabs-service";
 import webpageStorageService from "../webpage-storage-service";
 import CommandsExecutor from "../commands-executor";
+import commandsData from "../../data/commands-data";
 
 jest.mock("../browser", () => ({
   __esModule: true,
@@ -20,10 +21,6 @@ jest.mock("../webpage-storage-service", () => ({
     getWebpages: jest.fn()
   }
 }));
-
-const toggleQuiteModeCommand = "toggle-quite-mode";
-const globalToggleQuiteModeCommand = "global-toggle-quite-mode";
-const openSavedWebPagesCommand = "open-saved-web-pages";
 
 beforeEach(() => {
   webpageStorageService.getWebpages.mockClear();
@@ -49,61 +46,61 @@ describe("commands-executor.js", () => {
       });
     });
 
-    describe(`when given ${toggleQuiteModeCommand} command`, () => {
+    describe(`when given ${commandsData.toggleQuietMode.id} command`, () => {
       it("mute tabs if not alaready muted", async () => {
         const commandsExecutor = new CommandsExecutor();
-        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(commandsData.toggleQuietMode.id);
 
         expect(tabsService.muteTabs).toHaveBeenCalledTimes(1);
       });
 
       it("unmute tabs if already muted", async () => {
         const commandsExecutor = new CommandsExecutor();
-        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
-        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(commandsData.toggleQuietMode.id);
+        await commandsExecutor.executeCommand(commandsData.toggleQuietMode.id);
 
         expect(tabsService.muteTabs).toHaveBeenCalledTimes(1);
         expect(tabsService.unmuteTabs).toHaveBeenCalledTimes(1);
       });
 
-      it(`unmute tabs if already muted by ${globalToggleQuiteModeCommand} command`, async () => {
+      it(`unmute tabs if already muted by ${commandsData.globalToggleQuietMode.id} command`, async () => {
         const commandsExecutor = new CommandsExecutor();
-        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
-        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(commandsData.globalToggleQuietMode.id);
+        await commandsExecutor.executeCommand(commandsData.toggleQuietMode.id);
 
         expect(tabsService.muteTabs).toHaveBeenCalledTimes(1);
         expect(tabsService.unmuteTabs).toHaveBeenCalledTimes(1);
       });
     });
 
-    describe(`when given ${globalToggleQuiteModeCommand} command`, () => {
+    describe(`when given ${commandsData.globalToggleQuietMode.id} command`, () => {
       it("mute tabs if not alaready muted", async () => {
         const commandsExecutor = new CommandsExecutor();
-        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(commandsData.globalToggleQuietMode.id);
 
         expect(tabsService.muteTabs).toHaveBeenCalledTimes(1);
       });
 
       it("unmute tabs if already muted", async () => {
         const commandsExecutor = new CommandsExecutor();
-        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
-        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(commandsData.globalToggleQuietMode.id);
+        await commandsExecutor.executeCommand(commandsData.globalToggleQuietMode.id);
 
         expect(tabsService.muteTabs).toHaveBeenCalledTimes(1);
         expect(tabsService.unmuteTabs).toHaveBeenCalledTimes(1);
       });
 
-      it(`unmute tabs if already muted by ${toggleQuiteModeCommand} command`, async () => {
+      it(`unmute tabs if already muted by ${commandsData.toggleQuietMode.id} command`, async () => {
         const commandsExecutor = new CommandsExecutor();
-        await commandsExecutor.executeCommand(toggleQuiteModeCommand);
-        await commandsExecutor.executeCommand(globalToggleQuiteModeCommand);
+        await commandsExecutor.executeCommand(commandsData.toggleQuietMode.id);
+        await commandsExecutor.executeCommand(commandsData.globalToggleQuietMode.id);
 
         expect(tabsService.muteTabs).toHaveBeenCalledTimes(1);
         expect(tabsService.unmuteTabs).toHaveBeenCalledTimes(1);
       });
     });
 
-    describe(`when given ${openSavedWebPagesCommand} command`, () => {
+    describe(`when given ${commandsData.openSavedWebPages.id} command`, () => {
       it("get and open the saved web pages", async () => {
         webpageStorageService.getWebpages.mockImplementation(() =>
           Promise.resolve([
@@ -119,7 +116,7 @@ describe("commands-executor.js", () => {
         );
 
         const commandsExecutor = new CommandsExecutor();
-        await commandsExecutor.executeCommand(openSavedWebPagesCommand);
+        await commandsExecutor.executeCommand(commandsData.openSavedWebPages.id);
 
         expect(tabsService.createTab).toHaveBeenCalledTimes(2);
         expect(tabsService.createTab).toBeCalledWith("foo", true);
