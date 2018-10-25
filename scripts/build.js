@@ -18,8 +18,7 @@ function ensureDistFolder() {
 }
 
 function copyPublicAssets() {
-  fse.copySync(paths.htmlFolder, paths.distHtmlFolder);
-  fse.copySync(paths.stylesFolder, paths.distStylesFolder);
+  fse.copySync(paths.publicFolder, paths.distFolder);
 }
 
 function createExtensionManifest() {
