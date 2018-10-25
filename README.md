@@ -17,8 +17,9 @@ Google Chrome extension for managing tabs
 3. Add the extension in Chrome in **Developer mode**
    1. Open **chrome://extensions** in Chrome
    2. Enable **Developer mode**
-   3. **LOAD UNPACKED** extension by choosing the root folder
+   3. **LOAD UNPACKED** extension by choosing the root/dist folder
    4. Copy the **extension ID** from the page
 4. Replace the **Tabify.ID** value in Tabify.js with the copied ID
+6. Run **yarn run build:dev** in root again
 5. **Refresh** the extension in chrome://extensions
 ![alt text](images/chrome_extensions.png "chrome://extensions")
