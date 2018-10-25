@@ -3,8 +3,7 @@
 3. pack extension
 4. upload extension
 
-// manifest generation during build //commands SST
+// Style in components
 // access env vars in JS/Node
-// react components + tests at the same place
 // react app boilerplate - create react app (FB) - best practices reference
 // Enzyme + snapshots library
