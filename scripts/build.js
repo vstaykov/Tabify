@@ -1,6 +1,7 @@
 /* eslint-disable no-console */
 const parseArgs = require("minimist");
 const fse = require("fs-extra");
+const chalk = require("chalk");
 const webpack = require("webpack");
 const webpackDevConfig = require("./config/webpack/webpack.config.dev");
 const webpackProductionConfig = require("./config/webpack/webpack.config.prod");
@@ -10,6 +11,11 @@ const commandsData = require("./../src/data/commands-data");
 const DEV_MODE = "dev";
 const PRODUCTION_MODE = "production";
 const VALID_MODES = [DEV_MODE, PRODUCTION_MODE];
+
+const logError = (title, content) => {
+  console.error(chalk.bold.bgRed.white(title));
+  console.error(content);
+};
 
 function ensureDistFolder() {
   fse.removeSync(paths.distFolder);
@@ -62,9 +68,9 @@ function getWebpackConfig(mode) {
 
 function handleWebpackBuildResult(err, stats) {
   if (err) {
-    console.error(err.stack || err);
+    logError("Webpack configuration error:", err.stack || err);
   } else if (stats.hasErrors()) {
-    console.log(stats.toString("errors-only"));
+    logError("Webpack compilation error:", stats.toString("errors-only"));
   } else {
     console.log(
       stats.toString({
@@ -75,22 +81,24 @@ function handleWebpackBuildResult(err, stats) {
   }
 }
 
+function compile(mode) {
+  const webpackConfig = getWebpackConfig(mode);
+  const compiler = webpack(webpackConfig);
+
+  compiler.run(handleWebpackBuildResult);
+}
+
 const args = parseArgs(process.argv.slice(2), { string: "mode" });
 const mode = args.mode && args.mode.toLowerCase();
 
 if (mode && VALID_MODES.includes(mode)) {
   ensureDistFolder();
-
   copyPublicAssets();
-
   createExtensionManifest();
-
-  const webpackConfig = getWebpackConfig(mode);
-  const compiler = webpack(webpackConfig);
-
-  compiler.run(handleWebpackBuildResult);
+  compile(mode);
 } else {
-  console.error(
+  logError(
+    "Build error:",
     `Unknown build mode. Please use --mode [${VALID_MODES.join(" / ")}]`
   );
 }
