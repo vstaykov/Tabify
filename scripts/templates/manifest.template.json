@@ -25,30 +25,7 @@
     "page": "public/html/options.html",
     "open_in_tab": true
   },
-  "commands": {
-    "toggle-quiet-mode": {
-      "suggested_key": {
-        "default": "Ctrl+Q",
-        "mac": "Command+Shift+Q"
-      },
-      "description": "Toggle quiet mode on or off"
-    },
-    "global-toggle-quiet-mode": {
-      "suggested_key": {
-        "default": "Ctrl+Shift+1",
-        "mac": "Command+Shift+1"
-      },
-      "description": "Toggle quiet mode on or off pressed outside Chrome context",
-      "global": true
-    },
-    "open-saved-web-pages": {
-      "suggested_key": {
-        "default": "Ctrl+I",
-        "mac": "Command+I"
-      },
-      "description": "Open all saved web pages"
-    }
-  },
+  "commands": "CREATED BUILD TIME!",
   "permissions": [
     "tabs",
     "commands",
