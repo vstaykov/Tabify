@@ -13,16 +13,16 @@
   "minimum_chrome_version": "23",
   "browser_action": {
     "default_icon": "icons/tabs_512.png",
-    "default_popup": "public/html/popup.html"
+    "default_popup": "html/popup.html"
   },
   "background": {
     "scripts": [
-      "dist/backgroundscript.bundle.js"
+      "backgroundscript.bundle.js"
     ],
     "persistent": false
   },
   "options_ui": {
-    "page": "public/html/options.html",
+    "page": "html/options.html",
     "open_in_tab": true
   },
   "commands": "CREATED BUILD TIME!",
