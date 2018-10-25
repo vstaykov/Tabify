@@ -17,17 +17,17 @@ const logError = (title, content) => {
   console.error(content);
 };
 
-function ensureDistFolder() {
+const ensureDistFolder = () => {
   fse.removeSync(paths.distFolder);
 
   fse.mkdirSync(paths.distFolder);
-}
+};
 
-function copyPublicAssets() {
+const copyPublicAssets = () => {
   fse.copySync(paths.publicFolder, paths.distFolder);
-}
+};
 
-function createExtensionManifest() {
+const createExtensionManifest = () => {
   const manifestTemplateJson = fse.readFileSync(paths.manifestTemplate);
   const manifest = JSON.parse(manifestTemplateJson);
   manifest.commands = {};
@@ -47,9 +47,9 @@ function createExtensionManifest() {
 
   const manifestJson = JSON.stringify(manifest);
   fse.writeFileSync(paths.manifest, manifestJson);
-}
+};
 
-function getWebpackConfig(mode) {
+const getWebpackConfig = mode => {
   let config;
 
   switch (mode) {
@@ -64,9 +64,9 @@ function getWebpackConfig(mode) {
   }
 
   return config;
-}
+};
 
-function handleWebpackBuildResult(err, stats) {
+const handleWebpackBuildResult = (err, stats) => {
   if (err) {
     logError("Webpack configuration error:", err.stack || err);
   } else if (stats.hasErrors()) {
@@ -79,14 +79,14 @@ function handleWebpackBuildResult(err, stats) {
       })
     );
   }
-}
+};
 
-function compile(mode) {
+const compile = mode => {
   const webpackConfig = getWebpackConfig(mode);
   const compiler = webpack(webpackConfig);
 
   compiler.run(handleWebpackBuildResult);
-}
+};
 
 const args = parseArgs(process.argv.slice(2), { string: "mode" });
 const mode = args.mode && args.mode.toLowerCase();
