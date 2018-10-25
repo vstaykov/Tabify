@@ -8,7 +8,7 @@ module.exports = {
   },
   output: {
     filename: "[name].bundle.js",
-    path: paths.distFolder
+    path: paths.distJsFolder
   },
   module: {
     rules: [{
