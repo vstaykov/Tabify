@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
-class Webpage extends React.PureComponent {
+class WebpageListItem extends React.PureComponent {
   handleDelete = () => {
     this.props.handleDelete(this.props.id);
   };
@@ -39,11 +39,11 @@ class Webpage extends React.PureComponent {
   }
 }
 
-Webpage.propTypes = {
+WebpageListItem.propTypes = {
   id: PropTypes.string.isRequired,
   url: PropTypes.string.isRequired,
   isPinned: PropTypes.bool.isRequired,
   handleDelete: PropTypes.func.isRequired
 };
 
-export default Webpage;
+export default WebpageListItem;

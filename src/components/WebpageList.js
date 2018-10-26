@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import Webpage from "./Webpage";
+import WebpageListItem from "./WebpageListItem";
 
 const WebpageList = ({ webPages, maxWebPagesCount, deleteWebPage }) => (
   <div>
@@ -11,7 +11,11 @@ const WebpageList = ({ webPages, maxWebPagesCount, deleteWebPage }) => (
       </span>
     </div>
     {webPages.map(webPage => (
-      <Webpage key={webPage.id} {...webPage} handleDelete={deleteWebPage} />
+      <WebpageListItem
+        key={webPage.id}
+        {...webPage}
+        handleDelete={deleteWebPage}
+      />
     ))}
   </div>
 );
