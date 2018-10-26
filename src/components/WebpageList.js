@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import WebpageListItem from "./WebpageListItem";
+import WebpageListItem from "./WebpageListItem/WebpageListItem";
 
 const WebpageList = ({ webPages, maxWebPagesCount, deleteWebPage }) => (
   <div>
