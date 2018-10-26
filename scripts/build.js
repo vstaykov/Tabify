@@ -14,7 +14,7 @@ const PRODUCTION_MODE = "production";
 const VALID_MODES = [DEV_MODE, PRODUCTION_MODE];
 
 const logError = (title, content) => {
-  console.error(chalk.bold.bgRed.white(title));
+  console.error(chalk.bold.bgRed.white(`${title}:`));
   console.error(content);
 };
 
@@ -69,9 +69,9 @@ const getWebpackConfig = mode => {
 
 const handleWebpackBuildResult = (err, stats) => {
   if (err) {
-    logError("Webpack configuration error:", err.stack || err);
+    logError("Webpack configuration error", err.stack || err);
   } else if (stats.hasErrors()) {
-    logError("Webpack compilation error:", stats.toString("errors-only"));
+    logError("Webpack compilation error", stats.toString("errors-only"));
   } else {
     console.log(
       stats.toString({
@@ -99,7 +99,7 @@ if (mode && VALID_MODES.includes(mode)) {
   compile(mode);
 } else {
   logError(
-    "Build error:",
+    "Build error",
     `Unknown build mode. Please use --mode [${VALID_MODES.join(" / ")}]`
   );
 }
