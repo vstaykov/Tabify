@@ -1,16 +1,18 @@
 import React from "react";
-import ShortcutsSection from "../ShortcutsSection";
 import renderer from "react-test-renderer";
+import ShortcutsSection from "../ShortcutsSection";
 
 describe("<ShortcutsSection />", () => {
   describe("render()", () => {
     describe("when given one shortcut", () => {
       it("render shortcut correctly", () => {
         const props = {
-         shortcuts: [{
-          title: "Foo",
-          keys: ["Ctrl"]
-         }]
+          shortcuts: [
+            {
+              title: "Foo",
+              keys: ["Ctrl"]
+            }
+          ]
         };
 
         const tree = renderer.create(<ShortcutsSection {...props} />).toJSON();
@@ -22,19 +24,21 @@ describe("<ShortcutsSection />", () => {
     describe("when given several shortcuts", () => {
       it("render all shortcuts correctly", () => {
         const props = {
-          shortcuts: [{
-           title: "Foo",
-           keys: ["Ctrl"]
-          },
-          {
-            title: "Bar",
-            keys: ["Alt", "Q"]
-          },
-          {
-            title: "FooBar",
-            keys: ["Ctrl", "Shift", "Alt", "Q"]
-          }]
-         };
+          shortcuts: [
+            {
+              title: "Foo",
+              keys: ["Ctrl"]
+            },
+            {
+              title: "Bar",
+              keys: ["Alt", "Q"]
+            },
+            {
+              title: "FooBar",
+              keys: ["Ctrl", "Shift", "Alt", "Q"]
+            }
+          ]
+        };
 
         const tree = renderer.create(<ShortcutsSection {...props} />).toJSON();
 

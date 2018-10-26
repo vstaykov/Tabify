@@ -1,6 +1,6 @@
 import React from "react";
-import Shortcut from "../Shortcut";
 import renderer from "react-test-renderer";
+import Shortcut from "../Shortcut";
 
 describe("<Shortcut />", () => {
   describe("render()", () => {
