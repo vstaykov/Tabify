@@ -1,0 +1,286 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<WebpageForm /> when enabled is false should render submit input disabled 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div>
+    <label
+      htmlFor="pageUrl"
+    >
+      Page URL
+      <input
+        id="pageUrl"
+        onChange={[Function]}
+        type="text"
+        value="foo"
+      />
+    </label>
+    <label
+      className="switch"
+      htmlFor="pinned"
+    >
+      Pinned
+      <input
+        checked={true}
+        id="pinned"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="slider round"
+      />
+    </label>
+    <input
+      disabled={true}
+      type="submit"
+      value="Add"
+    />
+  </div>
+</form>
+`;
+
+exports[`<WebpageForm /> when enabled is true should render submit input enabled 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div>
+    <label
+      htmlFor="pageUrl"
+    >
+      Page URL
+      <input
+        id="pageUrl"
+        onChange={[Function]}
+        type="text"
+        value="foo"
+      />
+    </label>
+    <label
+      className="switch"
+      htmlFor="pinned"
+    >
+      Pinned
+      <input
+        checked={true}
+        id="pinned"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="slider round"
+      />
+    </label>
+    <input
+      disabled={false}
+      type="submit"
+      value="Add"
+    />
+  </div>
+</form>
+`;
+
+exports[`<WebpageForm /> when invalid data message not provided should not render invalid data message section 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div>
+    <label
+      htmlFor="pageUrl"
+    >
+      Page URL
+      <input
+        id="pageUrl"
+        onChange={[Function]}
+        type="text"
+        value="foo"
+      />
+    </label>
+    <label
+      className="switch"
+      htmlFor="pinned"
+    >
+      Pinned
+      <input
+        checked={true}
+        id="pinned"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="slider round"
+      />
+    </label>
+    <input
+      disabled={false}
+      type="submit"
+      value="Add"
+    />
+  </div>
+</form>
+`;
+
+exports[`<WebpageForm /> when invalid data message provided should render invalid data message 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div>
+    <label
+      htmlFor="pageUrl"
+    >
+      Page URL
+      <input
+        id="pageUrl"
+        onChange={[Function]}
+        type="text"
+        value="foo"
+      />
+    </label>
+    <label
+      className="switch"
+      htmlFor="pinned"
+    >
+      Pinned
+      <input
+        checked={true}
+        id="pinned"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="slider round"
+      />
+    </label>
+    <input
+      disabled={false}
+      type="submit"
+      value="Add"
+    />
+  </div>
+  <div
+    className="invalid-form-data"
+  >
+    data is invalid
+  </div>
+</form>
+`;
+
+exports[`<WebpageForm /> when page URL has initial value should render the value in page URL input 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div>
+    <label
+      htmlFor="pageUrl"
+    >
+      Page URL
+      <input
+        id="pageUrl"
+        onChange={[Function]}
+        type="text"
+        value="URL"
+      />
+    </label>
+    <label
+      className="switch"
+      htmlFor="pinned"
+    >
+      Pinned
+      <input
+        checked={true}
+        id="pinned"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="slider round"
+      />
+    </label>
+    <input
+      disabled={false}
+      type="submit"
+      value="Add"
+    />
+  </div>
+</form>
+`;
+
+exports[`<WebpageForm /> when pinned is false should render pinned checkbox unchecked 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div>
+    <label
+      htmlFor="pageUrl"
+    >
+      Page URL
+      <input
+        id="pageUrl"
+        onChange={[Function]}
+        type="text"
+        value="foo"
+      />
+    </label>
+    <label
+      className="switch"
+      htmlFor="pinned"
+    >
+      Pinned
+      <input
+        checked={false}
+        id="pinned"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="slider round"
+      />
+    </label>
+    <input
+      disabled={false}
+      type="submit"
+      value="Add"
+    />
+  </div>
+</form>
+`;
+
+exports[`<WebpageForm /> when pinned is true should render pinned checkbox checked 1`] = `
+<form
+  onSubmit={[Function]}
+>
+  <div>
+    <label
+      htmlFor="pageUrl"
+    >
+      Page URL
+      <input
+        id="pageUrl"
+        onChange={[Function]}
+        type="text"
+        value="foo"
+      />
+    </label>
+    <label
+      className="switch"
+      htmlFor="pinned"
+    >
+      Pinned
+      <input
+        checked={true}
+        id="pinned"
+        onChange={[Function]}
+        type="checkbox"
+      />
+      <span
+        className="slider round"
+      />
+    </label>
+    <input
+      disabled={false}
+      type="submit"
+      value="Add"
+    />
+  </div>
+</form>
+`;
