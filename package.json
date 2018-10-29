@@ -17,6 +17,8 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-2": "^6.24.1",
     "chalk": "^2.4.1",
+    "enzyme": "^3.7.0",
+    "enzyme-adapter-react-16": "^1.6.0",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-prettier": "^2.9.0",
@@ -45,6 +47,9 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "uniqid": "^5.0.3"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./scripts/config/jest/jest-setup.js"
   },
   "scripts": {
     "start": "npm run lint:watch",
