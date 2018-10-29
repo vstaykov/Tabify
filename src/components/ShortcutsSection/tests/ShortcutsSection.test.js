@@ -1,5 +1,5 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { shallow } from "enzyme";
 import ShortcutsSection from "../ShortcutsSection";
 
 describe("<ShortcutsSection />", () => {
@@ -15,9 +15,9 @@ describe("<ShortcutsSection />", () => {
           ]
         };
 
-        const tree = renderer.create(<ShortcutsSection {...props} />).toJSON();
+        const component = shallow(<ShortcutsSection {...props} />);
 
-        expect(tree).toMatchSnapshot();
+        expect(component).toMatchSnapshot();
       });
     });
 
@@ -40,9 +40,9 @@ describe("<ShortcutsSection />", () => {
           ]
         };
 
-        const tree = renderer.create(<ShortcutsSection {...props} />).toJSON();
+        const component = shallow(<ShortcutsSection {...props} />);
 
-        expect(tree).toMatchSnapshot();
+        expect(component).toMatchSnapshot();
       });
     });
   });

@@ -10,19 +10,15 @@ exports[`<ShortcutsSection /> render() when given one shortcut render shortcut c
     Shortcuts Cheatsheet
   </div>
   <hr />
-  <div>
-    <div
-      className="shortcut-title d-inline"
-    >
-      Foo
-      :
-    </div>
-    <span
-      className="shortcut-key text-monospace"
-    >
-      Ctrl
-    </span>
-  </div>
+  <Shortcut
+    key="Foo"
+    keys={
+      Array [
+        "Ctrl",
+      ]
+    }
+    title="Foo"
+  />
 </div>
 `;
 
@@ -36,92 +32,36 @@ exports[`<ShortcutsSection /> render() when given several shortcuts render all s
     Shortcuts Cheatsheet
   </div>
   <hr />
-  <div>
-    <div
-      className="shortcut-title d-inline"
-    >
-      Foo
-      :
-    </div>
-    <span
-      className="shortcut-key text-monospace"
-    >
-      Ctrl
-    </span>
-  </div>
-  <div>
-    <div
-      className="shortcut-title d-inline"
-    >
-      Bar
-      :
-    </div>
-    <span>
-      <span
-        className="shortcut-key text-monospace"
-      >
-        Alt
-      </span>
-      <span
-        className="shortcut-key-concatinator"
-      >
-        +
-      </span>
-    </span>
-    <span
-      className="shortcut-key text-monospace"
-    >
-      Q
-    </span>
-  </div>
-  <div>
-    <div
-      className="shortcut-title d-inline"
-    >
-      FooBar
-      :
-    </div>
-    <span>
-      <span
-        className="shortcut-key text-monospace"
-      >
-        Ctrl
-      </span>
-      <span
-        className="shortcut-key-concatinator"
-      >
-        +
-      </span>
-    </span>
-    <span>
-      <span
-        className="shortcut-key text-monospace"
-      >
-        Shift
-      </span>
-      <span
-        className="shortcut-key-concatinator"
-      >
-        +
-      </span>
-    </span>
-    <span>
-      <span
-        className="shortcut-key text-monospace"
-      >
-        Alt
-      </span>
-      <span
-        className="shortcut-key-concatinator"
-      >
-        +
-      </span>
-    </span>
-    <span
-      className="shortcut-key text-monospace"
-    >
-      Q
-    </span>
-  </div>
+  <Shortcut
+    key="Foo"
+    keys={
+      Array [
+        "Ctrl",
+      ]
+    }
+    title="Foo"
+  />
+  <Shortcut
+    key="Bar"
+    keys={
+      Array [
+        "Alt",
+        "Q",
+      ]
+    }
+    title="Bar"
+  />
+  <Shortcut
+    key="FooBar"
+    keys={
+      Array [
+        "Ctrl",
+        "Shift",
+        "Alt",
+        "Q",
+      ]
+    }
+    title="FooBar"
+  />
 </div>
 `;

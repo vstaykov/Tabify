@@ -24,7 +24,9 @@ exports[`<Shortcut /> render() when given several keys render all keys correctly
     Foo
     :
   </div>
-  <span>
+  <span
+    key="Ctrl"
+  >
     <span
       className="shortcut-key text-monospace"
     >
@@ -36,7 +38,9 @@ exports[`<Shortcut /> render() when given several keys render all keys correctly
       +
     </span>
   </span>
-  <span>
+  <span
+    key="Shift"
+  >
     <span
       className="shortcut-key text-monospace"
     >
@@ -48,7 +52,9 @@ exports[`<Shortcut /> render() when given several keys render all keys correctly
       +
     </span>
   </span>
-  <span>
+  <span
+    key="Alt"
+  >
     <span
       className="shortcut-key text-monospace"
     >

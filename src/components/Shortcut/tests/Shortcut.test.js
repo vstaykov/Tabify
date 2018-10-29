@@ -1,5 +1,5 @@
 import React from "react";
-import renderer from "react-test-renderer";
+import { shallow } from "enzyme";
 import Shortcut from "../Shortcut";
 
 describe("<Shortcut />", () => {
@@ -10,9 +10,9 @@ describe("<Shortcut />", () => {
           title: "Foo",
           keys: ["Ctrl"]
         };
-        const tree = renderer.create(<Shortcut {...props} />).toJSON();
+        const component = shallow(<Shortcut {...props} />);
 
-        expect(tree).toMatchSnapshot();
+        expect(component).toMatchSnapshot();
       });
     });
 
@@ -22,9 +22,9 @@ describe("<Shortcut />", () => {
           title: "Foo",
           keys: ["Ctrl", "Shift", "Alt", "Q"]
         };
-        const tree = renderer.create(<Shortcut {...props} />).toJSON();
+        const component = shallow(<Shortcut {...props} />);
 
-        expect(tree).toMatchSnapshot();
+        expect(component).toMatchSnapshot();
       });
     });
   });
