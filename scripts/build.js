@@ -1,5 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable import/no-extraneous-dependencies */
 const parseArgs = require("minimist");
 const fse = require("fs-extra");
 const chalk = require("chalk");
