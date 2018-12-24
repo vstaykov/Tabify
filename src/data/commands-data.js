@@ -18,7 +18,7 @@ const commandsData = {
     description: "Open all saved web pages",
     global: false,
     defaultKeys: "Ctrl+I",
-    macKeys: "Command+Shift+1"
+    macKeys: "Command+I"
   }
 };
 
