@@ -3,8 +3,8 @@ const commandsData = {
     id: "toggle-quiet-mode",
     description: "Toggle quiet mode on or off",
     global: false,
-    defaultKeys: "Ctrl+Q",
-    macKeys: "Command+Shift+Q"
+    defaultKeys: "Ctrl+U",
+    macKeys: "Command+U"
   },
   globalToggleQuietMode: {
     id: "global-toggle-quiet-mode",
